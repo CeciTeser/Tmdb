@@ -10,7 +10,7 @@ const Header: FC < Props > = ({hideNav}) => {
 
     return (
     
-        <header className="header">
+        <header className="container-fluid">
         {!hideNav &&  <Nav/>} 
         </header>
     

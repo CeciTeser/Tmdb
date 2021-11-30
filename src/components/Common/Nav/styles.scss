@@ -1,0 +1,23 @@
+@import '../../../scss/variables.scss';
+
+ul{
+    width: 25rem;
+    list-style: none;
+
+    a{
+        border: none;
+        text-decoration: none;
+        background-color: transparent;
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+        list-style: none;
+        color: rgb(71, 75, 136);
+        }
+
+    button{
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+        border:none;
+        border-radius: 3px;
+    }
+}

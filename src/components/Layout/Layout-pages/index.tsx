@@ -1,14 +1,12 @@
 import { FC } from 'react';
-import { Footer } from '../../Common';
 import { Header } from '../../Common';
 import { Main } from '../Main';
 
 type Props={
     page?:string,
     hideNav?:boolean, 
-    hideFooter?:boolean,
 }
-const Layout:FC < Props >= ({children , page, hideNav, hideFooter})=> {
+const Layout:FC < Props >= ({children , page, hideNav})=> {
 
     return (
         <>
@@ -17,8 +15,6 @@ const Layout:FC < Props >= ({children , page, hideNav, hideFooter})=> {
             <Main className = {page} >
             {children}
             </Main>
-            {!hideFooter &&  <Footer />} 
-
         </>
     )
 

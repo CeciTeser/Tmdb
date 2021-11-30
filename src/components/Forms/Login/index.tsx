@@ -4,8 +4,13 @@ import { Link } from "react-router-dom";
 import { validationSchema } from "./validation-schema";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { defaultValues } from './default-values';
+import { useAuth } from "../../../hooks";
+// import "bootstrap/dist/css/bootstrap.min.css";
+
 
 const Login:FC =()=>{
+
+    const { login } = useAuth();
 
     const {
         register, 
@@ -16,20 +21,20 @@ const Login:FC =()=>{
         defaultValues,
     })
 
-    // const onSubmit = async (data: { email:string; password: string}) =>  {
+    const onSubmit = async (data: { email:string; password: string}) =>  {
 
-    //     try {
-    //         await login(data.email, data.password);
-    //     } catch (err) {
-    //         console.log(err);
-    //         }
-    // }
+        try {
+            await login(data.email, data.password);
+        } catch (err) {
+            console.log(err);
+            }
+    }
 
-    // onSubmit={handleSubmit (onSubmit)}
+
 
     return (
-        <div className="login-form">
-                <form action="" >
+        <div className="login-form" >
+                <form action="" onSubmit={handleSubmit (onSubmit)} >
                     <h2>LOGIN</h2>
                     <div>
                         <label htmlFor="email">EMAIL: </label>
@@ -54,7 +59,7 @@ const Login:FC =()=>{
                         {errors.password?.message}
                     </div>
                     <button type="submit">LOGIN</button>
-                    <p>Don´t have an account? <Link to="/sign-up">SIGN-UP</Link></p>
+                    <p>Don't have an account? <Link to="/signup">SIGN-UP</Link></p>
                 </form>
             </div>   
     )
