@@ -4,6 +4,8 @@ import axios from 'axios';
 
 const apiFirebase = axios.create({
     baseURL:'https://tmdb-9d289-default-rtdb.firebaseio.com/'
+
+    //baseURL: process.env.REACT_APP_FIREBASE
 });
 
 

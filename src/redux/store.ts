@@ -1,25 +1,23 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension'
+import { createStore, combineReducers, applyMiddleware, compose  } from 'redux';
 import { authReducer } from './reducers/auth';
 import thunk from 'redux-thunk'
 
 
 declare global {
     interface Window {
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof composeWithDevTools;
+        __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
     }
 }
 
 const composeEnhancers =
     (typeof window !== "undefined" &&
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-    composeWithDevTools;
+        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+    compose;
 
-    
 const reducers = combineReducers({
-    auth: authReducer,
+    auth: authReducer
 })
 
 export const store = createStore(reducers, 
-    composeWithDevTools(applyMiddleware(thunk))
+    composeEnhancers(applyMiddleware(thunk))
 );
