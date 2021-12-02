@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Layout } from '../../components';
+import { WithAuth } from '../../hoc';
 
 
 
@@ -7,8 +8,8 @@ const Dashboard:FC =()=>{
 
     return (  
         <Layout page ='Dashboard'>
-            <h5>DASHBORAD</h5>
+
         </Layout>
     )
 }
-export {Dashboard};
+export default WithAuth(Dashboard);

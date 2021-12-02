@@ -9,7 +9,9 @@ const SignUpPage:FC =()=>{
 
     return (  
         <Layout page ='Signup' hideNav>
+            <div className="d-flex flex-column align-items-center justify-content-center mt-5">
             <Signup/> 
+            </div>
         </Layout>
     )
 }

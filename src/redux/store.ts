@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose  } from 'redux';
 import { authReducer } from './reducers/auth';
 import thunk from 'redux-thunk'
+import { currentUserReducer } from './reducers/currentUser';
 
 
 declare global {
@@ -15,7 +16,8 @@ const composeEnhancers =
     compose;
 
 const reducers = combineReducers({
-    auth: authReducer
+    auth: authReducer,
+    currentUser: currentUserReducer,
 })
 
 export const store = createStore(reducers, 
