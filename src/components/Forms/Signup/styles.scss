@@ -1,0 +1,29 @@
+@import '../../../scss/variables.scss';
+
+.signup-form{
+    width:20rem;
+    height: 25rem;
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+    color:$primary-color;
+    background-color: $secondary-color;
+
+    h2{
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+
+    input{
+        width: 9rem;
+    }
+    
+    button{
+        width:5rem;
+        height: 1.5rem;
+        margin-bottom: 1rem;
+        border:none;
+        border-radius: 2px;
+        background-color:rgb(173, 181, 189);
+
+    }
+}

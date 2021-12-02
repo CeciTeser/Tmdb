@@ -4,8 +4,12 @@ import { signup } from "../../components/Forms/Signup/api";
 import { mapToArray } from "../../helpers";
 import { User } from "../../types";
 import { apiFirebase } from "../../utils";
+import {store} from '../../redux/store'
+import { currentUserDenied, currentUserOk } from "../../redux/actions/currentUser";
+
 
 const useAuth = () => {
+
     const [tokenStorage, setTokenStorage] = useState<string | undefined>(
         localStorage.getItem("token") || undefined
     );
@@ -13,6 +17,7 @@ const useAuth = () => {
     const [hasUserLoggedIn, setHasUserLoggedIn] = useState<boolean>();
 
     const { push } = useHistory();
+
 
     // const { currentUser, setCurrentUser } = useContext(AuthContext);
 
@@ -52,8 +57,9 @@ const useAuth = () => {
     
             if (token) {
             setTokenStorage(token);
-            push("/");
+            // push("/");
             // setCurrentUser(user);
+            store.dispatch(currentUserOk(user))
             } else {
                 setHasUserLoggedIn(false);
             }
@@ -77,7 +83,7 @@ const useAuth = () => {
         }
 
         if (user) {
-            // setCurrentUser(user);
+            store.dispatch(currentUserOk(user))
             setHasUserLoggedIn(true);   
         } else {
             setHasUserLoggedIn(false);
@@ -89,11 +95,11 @@ const useAuth = () => {
 
     const logout = () => {
         localStorage.removeItem("token");
-        // setCurrentUser(undefined);
+        store.dispatch(currentUserDenied(undefined))
         push('/login');
     };
 
-    const signUp = async(data: Omit<User, 'id role'>) => {
+    const signUp = async(data: Omit<User, 'id'>) => {
         try {
             await signup(data);
             push('/login');

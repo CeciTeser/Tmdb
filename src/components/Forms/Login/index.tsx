@@ -1,16 +1,20 @@
 import { FC } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { validationSchema } from "./validation-schema";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { defaultValues } from './default-values';
 import { useAuth } from "../../../hooks";
-// import "bootstrap/dist/css/bootstrap.min.css";
+
+
+import './styles.scss';
 
 
 const Login:FC =()=>{
 
     const { login } = useAuth();
+    const { push } = useHistory();
 
     const {
         register, 
@@ -25,30 +29,30 @@ const Login:FC =()=>{
 
         try {
             await login(data.email, data.password);
+            push('/')
         } catch (err) {
-            console.log(err);
+            console.log('error', err);
             }
     }
 
 
-
     return (
-        <div className="login-form" >
-                <form action="" onSubmit={handleSubmit (onSubmit)} >
-                    <h2>LOGIN</h2>
-                    <div>
-                        <label htmlFor="email">EMAIL: </label>
+        <div className="conteiner-fluid" >
+                <form action="" className='login-form d-flex flex-column align-items-center justify-content-between' onSubmit={handleSubmit (onSubmit)} >
+                    <h2>CINEMA</h2>
+                    <div className=" d-flex flex-column align-items-center justify-content-center ">
+                        <label htmlFor="email" className="pb-2">EMAIL: </label>
                         <input 
                             id="email" 
-                            type="email"    
+                            type="email"  
                             placeholder="ENTER YOUR EMAIL" 
                             required
                             {...register('email')}
                         />
                         {errors.email?.message}
                     </div>
-                    <div>
-                        <label htmlFor="password">PASSWORD: </label>
+                    <div className="d-flex flex-column align-items-center justify-content-center ">
+                        <label htmlFor="password" className="pb-2">PASSWORD: </label>
                         <input 
                             id="password" 
                             type="password" 

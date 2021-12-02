@@ -7,6 +7,8 @@ import { User } from "../../../types";
 import { signup } from "./api";
 import { useHistory } from "react-router";
 
+import './styles.scss';
+
 const Signup:FC =()=>{
 
     const {
@@ -34,11 +36,11 @@ const Signup:FC =()=>{
     }
 
     return (
-        <div className="signup-form">
-                <form action="" onSubmit={handleSubmit(onSubmit)} >
+        <div className="conteiner-fluid">
+                <form action="" className="signup-form d-flex flex-column align-items-center justify-content-between "onSubmit={handleSubmit(onSubmit)} >
                     <h2>Sign Up</h2>
-                    <div>
-                        <label htmlFor="email">EMAIL: </label>
+                    <div className=" d-flex flex-column align-items-center justify-content-center">
+                        <label htmlFor="email" className="pb-2">EMAIL: </label>
                         <input 
                             id="email" 
                             type="email"    
@@ -48,8 +50,8 @@ const Signup:FC =()=>{
                         />
                         {errors.email?.message}
                     </div>
-                    <div>
-                        <label htmlFor="password">PASSWORD: </label>
+                    <div className=" d-flex flex-column align-items-center justify-content-center">
+                        <label htmlFor="password" className="pb-2">PASSWORD: </label>
                         <input 
                             id="password" 
                             type="password" 
@@ -59,8 +61,8 @@ const Signup:FC =()=>{
                         />
                         {errors.password?.message}
                     </div>
-                    <div>
-                        <label htmlFor="name">NAME: </label>
+                    <div className="d-flex flex-column align-items-center justify-content-center">
+                        <label htmlFor="name" className="pb-2">NAME: </label>
                         <input 
                             id="name" 
                             type="text" 
@@ -70,8 +72,8 @@ const Signup:FC =()=>{
                         />
                         {errors.name?.message}
                     </div>
-                    <div>
-                        <label htmlFor="lastname">LASTNAME: </label>
+                    <div className=" d-flex flex-column align-items-center justify-content-center">
+                        <label htmlFor="lastname" className="pb-2">LASTNAME: </label>
                         <input 
                             id="lastname" 
                             type="text" 
@@ -81,8 +83,8 @@ const Signup:FC =()=>{
                         />
                         {errors.lastName?.message}
                     </div>
-                    <div>
-                        <label htmlFor="birthday">BIRTHDAY: </label>
+                    <div className=" d-flex flex-column align-items-center justify-content-center">
+                        <label htmlFor="birthday" className="pb-2">BIRTHDAY: </label>
                         <input 
                             id="birthday" 
                             type="date"
