@@ -16,3 +16,4 @@ const SignUpPage:FC =()=>{
     )
 }
 export {SignUpPage};
+ 

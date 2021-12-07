@@ -1,35 +1,10 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { Layout } from '../../components';
 import { Login } from '../../components/Forms/Login';
-import { useDispatch, useSelector } from "react-redux";
-import { processAuth } from "../../redux/actions/auth";
-import { User } from '../../types';
-
-
-type Store={
-    auth:{
-        data: User[],
-    }
-}
-
-
-const LoginPage:FC =()=>{
-
-    const dispatch = useDispatch()
-    
-
-    const {data} = useSelector((state:Store)=> state.auth)
 
 
 
-    useEffect (()=>{
-        dispatch(processAuth())
-
-    },[dispatch])
-
-
-
-    console.log('data', data)    
+const LoginPage:FC =()=>{ 
 
     return (  
         <Layout page ='Login' hideNav>

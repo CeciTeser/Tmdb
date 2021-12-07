@@ -5,6 +5,7 @@ import { LoginPage } from './pages/LoginPage';
 import { SignUpPage } from './pages/SignUpPage';
 import { store } from './redux/store';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import UsersPage from './pages/UsersPage';
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
     <Provider  store = {store}>
       <Router>
         <Switch>
+          <Route path="/users" component={UsersPage}/>
           <Route path="/login" component={LoginPage}/>
           <Route path="/signup" component={SignUpPage}/>
           <Route path="/" component={Dashboard}/>

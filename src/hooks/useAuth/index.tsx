@@ -18,9 +18,6 @@ const useAuth = () => {
 
     const { push } = useHistory();
 
-
-    // const { currentUser, setCurrentUser } = useContext(AuthContext);
-
     useEffect(() => {
         if (tokenStorage) localStorage.setItem("token", tokenStorage);
     }, [tokenStorage]);
@@ -57,8 +54,6 @@ const useAuth = () => {
     
             if (token) {
             setTokenStorage(token);
-            // push("/");
-            // setCurrentUser(user);
             store.dispatch(currentUserOk(user))
             } else {
                 setHasUserLoggedIn(false);
