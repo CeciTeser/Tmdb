@@ -7,23 +7,23 @@ const initialState = {
 
 
 
-export const authReducer = (state = initialState , action: any) =>{
+export const usersReducer = (state = initialState , action: any) =>{
 
     switch(action.type){
         
-        case types.authInit : 
+        case types.usersInit : 
         return {
             ...state,
             loading: true, 
         }
 
-        case types.authOk : 
+        case types.usersOk : 
         return {
             data: action.payload,
             loading: false, 
         }
 
-        case types.authError: 
+        case types.usersError: 
         return {
             data: { errorCode: 400},
             loading: false, 
