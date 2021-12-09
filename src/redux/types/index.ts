@@ -7,4 +7,7 @@ export const types = {
     currentUserOk: 'currentUserOk',
     currentUserError: 'currentUserError',
     
+    moviesInit: 'moviesInit',
+    moviesOk: 'moviesOk',
+    moviesError: 'moviesError',
 };

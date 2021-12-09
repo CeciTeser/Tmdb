@@ -5,8 +5,10 @@
     height: 25rem;
     font-size: 0.6rem;
     letter-spacing: 1px;
-    color:$primary-color;
+    color:$fourth-color;
     background-color: $secondary-color;
+    opacity: 0.8;
+    border-radius: 1rem;
 
     h2{
         font-size: 1rem;
@@ -15,6 +17,9 @@
 
     input{
         width: 9rem;
+        border-radius: 0.2rem;
+        border: 0.5px solid grey;
+        text-align: center;
     }
     
     button{
@@ -22,8 +27,14 @@
         height: 1.5rem;
         margin-bottom: 1rem;
         border:none;
-        border-radius: 2px;
-        background-color:rgb(173, 181, 189);
+        border-radius: 0.3rem;
+        color: $fourth-color;
+        background-color:$primary-color;
+        
 
+    }
+    button:hover{
+        color: $secondary-color;
+        background-color:$fourth-color;
     }
 }
