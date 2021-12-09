@@ -6,7 +6,7 @@ type Props={
 const Main:FC <Props> =({children, className})=>{
     return (
         <>
-            <main className = {className}>{children}</main>
+            <main className = {className} >{children}</main>
             
         </>
     )

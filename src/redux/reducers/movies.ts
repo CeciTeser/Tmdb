@@ -1,33 +1,34 @@
-import { User } from "../../types";
+import { Item } from "../../types";
 import { types } from "../types";
 
 const initialState = {
     data: [],
-    loading: false, 
+    loading: false,  
 };
 
-type UsersReducer = {
+type MoviesReducer = {
     type: string ,
-    payload: User[],
+    payload: Item[],
 }
 
-export const usersReducer = (state = initialState , action: UsersReducer) =>{
+
+export const moviesReducer = (state = initialState , action: MoviesReducer) =>{
 
     switch(action.type){
         
-        case types.usersInit : 
+        case types.moviesInit : 
         return {
             ...state,
             loading: true, 
         }
 
-        case types.usersOk : 
+        case types.moviesOk : 
         return {
-            data: action.payload, 
+            data: action.payload,
             loading: false, 
         }
 
-        case types.usersError: 
+        case types.moviesError: 
         return {
             data: { errorCode: 400},
             loading: false, 

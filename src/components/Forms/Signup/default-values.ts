@@ -4,4 +4,5 @@ export  const defaultValues= {
     name: '',
     lastName: '',
     birthday: '',
+    role: 'user',
 };

@@ -22,10 +22,9 @@ const Signup:FC =()=>{
 
     const { push } = useHistory();
 
-    const onSubmit = async (data: Omit<User, 'id role'>) =>  {
+    const onSubmit = async (data: Omit<User, 'id'>) =>  {
 
         try {
-            console.log(data)
             await signup(data)
             push("/login")
             
@@ -37,7 +36,7 @@ const Signup:FC =()=>{
 
     return (
         <div className="conteiner-fluid">
-                <form action="" className="signup-form d-flex flex-column align-items-center justify-content-between "onSubmit={handleSubmit(onSubmit)} >
+                <form action="" className="signup-form d-flex flex-column align-items-center justify-content-between mt-5"onSubmit={handleSubmit(onSubmit)} >
                     <h2>Sign Up</h2>
                     <div className=" d-flex flex-column align-items-center justify-content-center">
                         <label htmlFor="email" className="pb-2">EMAIL: </label>

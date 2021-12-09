@@ -1,11 +1,10 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteUsers, okUsers, processUsers } from "../../../redux/actions/users";
-import { store } from "../../../redux/store";
+import { deleteUsers, processUsers } from "../../../redux/actions/users";
 import { User } from "../../../types";
 
 
-type Store={
+type UserStore={
     users:{
         data: User[],
     }
@@ -16,7 +15,7 @@ const Users:FC=()=>{
     const dispatch = useDispatch()
     
 
-    const {data} = useSelector((state:Store)=> state.users)
+    const {data} = useSelector((state:UserStore)=> state.users)
 
 
     useEffect (()=>{
@@ -24,10 +23,6 @@ const Users:FC=()=>{
     
     },[dispatch])
 
-    // useEffect (()=>{
-    //     dispatch(processUsers())
-    //     store.dispatch(okUsers(data))
-    // },[deleteUser])
 
     return(
             <div>

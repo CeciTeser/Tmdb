@@ -8,6 +8,7 @@ import { defaultValues } from './default-values';
 import { useAuth } from "../../../hooks";
 
 
+
 import './styles.scss';
 
 
@@ -34,7 +35,6 @@ const Login:FC =()=>{
             console.log('error', err);
             }
     }
-
 
     return (
         <div className="conteiner-fluid" >
@@ -63,7 +63,7 @@ const Login:FC =()=>{
                         {errors.password?.message}
                     </div>
                     <button type="submit">LOGIN</button>
-                    <p>Don't have an account? <Link to="/signup">SIGN-UP</Link></p>
+                    <p>Don't have an account? <Link to="/signup">SIGN UP</Link></p>
                 </form>
             </div>   
     )
