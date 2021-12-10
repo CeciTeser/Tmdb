@@ -10,4 +10,5 @@ export const types = {
     moviesInit: 'moviesInit',
     moviesOk: 'moviesOk',
     moviesError: 'moviesError',
+
 };
