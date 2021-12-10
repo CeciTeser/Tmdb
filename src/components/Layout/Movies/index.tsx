@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { processMovies } from "../../../redux/actions/movies";
 import { Item } from "../../../types";
 
+import './styles.scss';
 
 type MoviesStore={
     movies:{
@@ -25,29 +26,22 @@ const Movies:FC=()=>{
 
 
     return(
-            <div>
-
-            <table className="table">
-                <thead>
-                    <tr>
-                    <th>MOVIE ID</th>
-                    <th>MOVIE TITLE</th>
-                    <th>MOVIE POSTER</th>
-                    </tr>
-                </thead>
-                <tbody>
+        <div className="container">
+            <div className="row">
                     {data?.map((movie) => {
-                    return (
-                <tr key={movie.id}>
-                    <td>{movie.id}</td>
-                    <td>{movie.title}</td>
-                    <td>{movie.poster_path}</td>
-                    {/* <td><button onClick={() => dispatch (deleteUsers(movie.id))}> DELETE </button></td> */}
-            </tr>
-                );
-                })}
-                </tbody>
-            </table> 
+                        return (
+                            <div className="col-md-3 mb-5 each-card">
+                                <div className="card" >
+                                    <img src ={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} className="card-img-top" alt={movie.title}></img>
+                                    <div className="card-body">
+                                        <h5 className="card-title">{movie.title}</h5>
+                                        <a href=" "className="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
+            </div> 
         </div>
     )
 }

@@ -1,21 +1,21 @@
 @import '../../../scss/variables.scss';
 
 ul{
-    width: 25rem;
+    width: 30%;
     list-style: none;
 
     a{
         border: none;
         text-decoration: none;
         background-color: transparent;
-        font-size: 0.6rem;
+        font-size: 1.5rem;
         letter-spacing: 1px;
         list-style: none;
         color:$primary-color
         }
 
     button{
-        font-size: 0.6rem;
+        font-size: 1.5rem;
         letter-spacing: 1px;
         border:none;
         border-radius: 3px;
