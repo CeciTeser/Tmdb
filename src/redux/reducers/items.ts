@@ -3,34 +3,40 @@ import { types } from "../types";
 
 const initialState = {
     data: [],
-    loading: false,  
+    loading: false,
+    // error: {
+    //     code:null, 
+    //     message
+    // },   
 };
 
-type MoviesReducer = {
+type ItemsReducer = {
     type: string ,
     payload: Item[],
 }
 
 
-export const moviesReducer = (state = initialState , action: MoviesReducer) =>{
+export const itemsReducer = (state = initialState , action: ItemsReducer) =>{
 
     switch(action.type){
         
-        case types.moviesInit : 
+        case types.itemsInit : 
         return {
             ...state,
             loading: true, 
         }
 
-        case types.moviesOk : 
+        case types.itemsOk : 
         return {
+            ...state,
             data: action.payload,
             loading: false, 
         }
 
-        case types.moviesError: 
+        case types.itemsError: 
         return {
-            data: { errorCode: 400},
+            ...state,
+            error: { errorCode: 400},
             loading: false, 
         }
 

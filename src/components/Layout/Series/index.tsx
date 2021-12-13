@@ -1,26 +1,26 @@
 import { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { processMovies } from "../../../redux/actions/movies";
+import { processItems } from "../../../redux/actions/items";
 import { Item } from "../../../types";
 
-import './styles.scss';
+// import './styles.scss';
 
-type MoviesStore={
-    movies:{
+type SeriesStore={
+    series:{
         data: Item[],
     }
 }
 
-const Movies:FC=()=>{
+const Series:FC=()=>{
 
     const dispatch = useDispatch()
     
 
-    const {data} = useSelector((state:MoviesStore)=> state.movies)
+    const {data} = useSelector((state:SeriesStore)=> state.series)
 
 
     useEffect (()=>{
-        dispatch(processMovies())
+        dispatch(processItems())
     
     },[dispatch])
 
@@ -28,13 +28,13 @@ const Movies:FC=()=>{
     return(
         <div className="container">
             <div className="row">
-                    {data?.map((movie) => {
+                    {data?.map((serie) => {
                         return (
                             <div className="col-md-3 mb-5 each-card">
                                 <div className="card" >
-                                    <img src ={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} className="card-img-top" alt={movie.title}></img>
+                                    <img src ={`https://image.tmdb.org/t/p/w500/${serie.poster_path}`} className="card-img-top" alt={serie.title}></img>
                                     <div className="card-body">
-                                        <h5 className="card-title">{movie.title}</h5>
+                                        <h5 className="card-title">{serie.title}</h5>
                                         <a href=" "className="btn btn-primary">Go somewhere</a>
                                     </div>
                                 </div>
@@ -46,4 +46,4 @@ const Movies:FC=()=>{
     )
 }
 
-export {Movies}
+export {Series}

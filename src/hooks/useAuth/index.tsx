@@ -6,9 +6,12 @@ import { User } from "../../types";
 import { apiFirebase } from "../../utils";
 import {store} from '../../redux/store'
 import { currentUserDenied, currentUserOk } from "../../redux/actions/currentUser";
+import { useDispatch } from "react-redux";
 
 
 const useAuth = () => {
+
+    const dispatch = useDispatch()
 
     const [tokenStorage, setTokenStorage] = useState<string | undefined>(
         localStorage.getItem("token") || undefined
@@ -32,7 +35,7 @@ const useAuth = () => {
         const newToken = Math.random().toString(36).substr(2);
 
         try {
-        await apiFirebase.patch(`/users/${user.id}.json`, { sessionToken: newToken });
+        await apiFirebase.patch(`/users/${user.idDB}.json`, { sessionToken: newToken });
         return newToken;
         } catch (err) {
         return null;
@@ -54,7 +57,8 @@ const useAuth = () => {
     
             if (token) {
             setTokenStorage(token);
-            store.dispatch(currentUserOk(user))
+            dispatch(currentUserOk(user))
+
             } else {
                 setHasUserLoggedIn(false);
             }
@@ -78,7 +82,7 @@ const useAuth = () => {
         }
 
         if (user) {
-            store.dispatch(currentUserOk(user))
+            dispatch(currentUserOk(user))
             setHasUserLoggedIn(true);   
         } else {
             setHasUserLoggedIn(false);
@@ -90,7 +94,7 @@ const useAuth = () => {
 
     const logout = () => {
         localStorage.removeItem("token");
-        store.dispatch(currentUserDenied(undefined))
+        dispatch(currentUserDenied(undefined))
         push('/login');
     };
 
