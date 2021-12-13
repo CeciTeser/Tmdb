@@ -1,14 +1,14 @@
-const mapToArray = (object: any) => {
+export const mapToArray = (object: any)=>{
+
     const array = [];
 
     for (const elem in object) {
     array.push({
-        id: elem,
         ...object[elem],
+        idDB: elem,
     });
     }
 
     return array;
-};
+}
 
-export { mapToArray }

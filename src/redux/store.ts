@@ -2,7 +2,8 @@ import { createStore, combineReducers, applyMiddleware, compose  } from 'redux';
 import { usersReducer } from './reducers/users';
 import thunk from 'redux-thunk';
 import { currentUserReducer } from './reducers/currentUser';
-import { moviesReducer } from './reducers/movies';
+import { itemsReducer } from './reducers/items';
+
 
 
 declare global {
@@ -19,7 +20,7 @@ const composeEnhancers =
 const reducers = combineReducers({
     users: usersReducer,
     currentUser: currentUserReducer,
-    movies: moviesReducer,
+    items: itemsReducer,
 })
 
 export const store = createStore(reducers, 

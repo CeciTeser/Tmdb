@@ -1,16 +1,16 @@
 import { FC } from 'react';
 import { Layout } from '../../components/Layout';
-import { Movies } from '../../components/Layout/Movies';
+import { Admin } from '../../components/Layout/Admin';
 import { WithAuth } from '../../hoc';
 
 
 
-const MoviesPage:FC =()=>{ 
+const AdminPage:FC =()=>{ 
 
     return (  
         <Layout page ='Movies'>
-            <Movies/>
+            <Admin/>
         </Layout>
     )
 }
-export default WithAuth (MoviesPage);
+export default WithAuth (AdminPage);

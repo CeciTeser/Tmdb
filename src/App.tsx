@@ -6,7 +6,8 @@ import { SignUpPage } from './pages/SignUpPage';
 import { store } from './redux/store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UsersPage from './pages/UsersPage';
-import MoviesPage from './pages/MoviesPage';
+import SeriesPage from './pages/SeriesPage';
+import AdminPage from './pages/AdminPage';
 
 
 function App() {
@@ -14,7 +15,8 @@ function App() {
     <Provider  store = {store}>
       <Router>
         <Switch>
-          <Route path="/movies" component={MoviesPage}/>
+          <Route path="/tv" component={SeriesPage}/>
+          <Route path="/admin" component={AdminPage}/>
           <Route path="/users" component={UsersPage}/>
           <Route path="/login" component={LoginPage}/>
           <Route path="/signup" component={SignUpPage}/>

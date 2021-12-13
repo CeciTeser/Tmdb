@@ -38,12 +38,12 @@ const Users:FC=()=>{
                 <tbody>
                     {data?.map((users) => {
                     return (
-                <tr key={users.id}>
+                <tr key={users.idDB}>
                     <td>{users.name}</td>
                     <td>{users.lastName}</td>
                     <td>{users.email}</td>
                     <td>{users.birthday}</td>
-                    <td><button onClick={() => dispatch (deleteUsers(users.id))}> DELETE </button></td>
+                    <td><button onClick={() => dispatch (deleteUsers(users.idDB))}> DELETE </button></td>
                 </tr>
                     );
                 })}
