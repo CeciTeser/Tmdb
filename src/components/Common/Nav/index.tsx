@@ -12,7 +12,7 @@ const Nav: FC = () => {
 
     return (
     
-        <nav className="navbar navbar-expand-lg">
+        <nav className="navbar navbar-expand-sm">
             <div className="container-fluid d-flex align-items-center justify-content-end">
                 <ul className="d-flex flex-row align-items-center justify-content-between pe-2">
                     <li>
