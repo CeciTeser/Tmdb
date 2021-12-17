@@ -8,12 +8,12 @@ import { useItems } from '../../hooks/useItems';
 
 const AdminPage: FC =()=>{ 
 
-    const { data, setPage} = useItems();
+    const { data } = useItems();
 
 
     return (  
         <Layout page ='Admin'>
-            <ItemsList items={data} setPage={setPage}/>
+            <ItemsList items={data}/>
         </Layout>
     )
 }
