@@ -1,35 +1,20 @@
-import { Dispatch, FC, SetStateAction} from "react";
-import { useDispatch } from "react-redux";
-import { processItems } from "../../../redux/actions/items";
+import { FC } from "react";
 import { Item } from "../../../types";
 import { StarRating } from "../../StarRaiting";
 import { Search } from "../Search";
-import ReactPaginate from 'react-paginate';
+import { Pagination } from "../../Common/Pagination";
+
 
 import './styles.scss';
 
+
 type Props={
     items:Item[], 
-    setPage: Dispatch <SetStateAction<number>>,
-
 }
 
-
-const ItemsList :FC<Props> = ({items, setPage}) =>{
-
-    const dispatch = useDispatch()
+const ItemsList :FC<Props> = ({items}) =>{
 
     
-    const handlePageClick= async (data:any)=>{
-
-        let currentPage = data.selected + 1 
-    
-        console.log(currentPage)
-
-        const value = await dispatch(processItems(currentPage)) 
-        setPage(Number(value))
-    }
-
 
     return(
         <div className="container">
@@ -50,20 +35,8 @@ const ItemsList :FC<Props> = ({items, setPage}) =>{
                             </div>
                         );
                     })}
+                <Pagination/>
             </div> 
-            <ReactPaginate
-                previousLabel={'previous'}
-                nextLabel={'next'}
-                pageCount= {5}
-                onPageChange = {handlePageClick}
-                containerClassName= {'pagination'}
-                pageClassName={'page-item'}
-                pageLinkClassName={'page-link'}
-                previousClassName={'page-item'}
-                previousLinkClassName={'page-link'}
-                nextClassName={'page-item'}
-                nextLinkClassName={'page-link'}
-            />
         </div>  
     )
 }   
