@@ -10,9 +10,12 @@ import SeriesPage from './pages/SeriesPage';
 import AdminPage from './pages/AdminPage';
 
 
+
+
 function App() {
+
   return(
-    <Provider  store = {store}>
+    <Provider store = {store}>
       <Router>
         <Switch>
           <Route path="/tv" component={SeriesPage}/>

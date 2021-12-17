@@ -1,15 +1,19 @@
 import { FC } from 'react';
 import { Layout } from '../../components/Layout';
-import { Admin } from '../../components/Layout/Admin';
+import { ItemsList } from '../../components/Layout/ItemsList';
 import { WithAuth } from '../../hoc';
+import { useItems } from '../../hooks/useItems';
 
 
 
-const AdminPage:FC =()=>{ 
+const AdminPage: FC =()=>{ 
+
+    const { data, setPage} = useItems();
+
 
     return (  
-        <Layout page ='Movies'>
-            <Admin/>
+        <Layout page ='Admin'>
+            <ItemsList items={data} setPage={setPage}/>
         </Layout>
     )
 }

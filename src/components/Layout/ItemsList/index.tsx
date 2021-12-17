@@ -1,38 +1,41 @@
-import { FC, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { Dispatch, FC, SetStateAction} from "react";
+import { useDispatch } from "react-redux";
 import { processItems } from "../../../redux/actions/items";
 import { Item } from "../../../types";
 import { StarRating } from "../../StarRaiting";
-
-
+import { Search } from "../Search";
+import ReactPaginate from 'react-paginate';
 
 import './styles.scss';
 
-type ItemsStore={
-    items:{
-        data: Item[],
-        // error: {errorCode:string }|null,
-    }
+type Props={
+    items:Item[], 
+    setPage: Dispatch <SetStateAction<number>>,
+
 }
 
-const Admin:FC=()=>{
+
+const ItemsList :FC<Props> = ({items, setPage}) =>{
 
     const dispatch = useDispatch()
+
     
+    const handlePageClick= async (data:any)=>{
 
-    const {data} = useSelector((state:ItemsStore)=> state.items)
-
-
-    useEffect (()=>{
-        dispatch(processItems())
+        let currentPage = data.selected + 1 
     
-    },[dispatch])
+        console.log(currentPage)
+
+        const value = await dispatch(processItems(currentPage)) 
+        setPage(Number(value))
+    }
 
 
     return(
         <div className="container">
+            <Search/>
             <div className="row">
-                    {data?.map((item) => {
+                    {items?.map((item) => {
                         return (
                             <div className="col-md-3 mb-5">
                                 <div className="card each-card" >
@@ -48,8 +51,21 @@ const Admin:FC=()=>{
                         );
                     })}
             </div> 
-        </div>
+            <ReactPaginate
+                previousLabel={'previous'}
+                nextLabel={'next'}
+                pageCount= {5}
+                onPageChange = {handlePageClick}
+                containerClassName= {'pagination'}
+                pageClassName={'page-item'}
+                pageLinkClassName={'page-link'}
+                previousClassName={'page-item'}
+                previousLinkClassName={'page-link'}
+                nextClassName={'page-item'}
+                nextLinkClassName={'page-link'}
+            />
+        </div>  
     )
-}
+}   
 
-export {Admin}
+export {ItemsList}
