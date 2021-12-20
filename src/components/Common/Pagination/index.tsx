@@ -30,7 +30,7 @@ const Pagination :FC = () =>{
                 pageCount= {470}
                 marginPagesDisplayed = {1}
                 onPageChange = {handlePageClick}
-                containerClassName= {'pagination justify-content-center'} 
+                containerClassName= {'pagination pagination-sm justify-content-center'} 
                 pageClassName={'page-item'}
                 pageLinkClassName={'page-link'}
                 previousClassName={'page-item'}

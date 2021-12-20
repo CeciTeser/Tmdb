@@ -4,7 +4,6 @@ import { signup } from "../../components/Forms/Signup/api";
 import { mapToArray } from "../../helpers";
 import { User } from "../../types";
 import { apiFirebase } from "../../utils";
-import {store} from '../../redux/store'
 import { currentUserDenied, currentUserOk } from "../../redux/actions/currentUser";
 import { useDispatch } from "react-redux";
 
