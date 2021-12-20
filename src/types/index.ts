@@ -9,6 +9,13 @@ export type User ={
     role:string,
 };
 
+export type TotalResults = {
+    page?: number;
+    results: Item[];
+    total_pages: number;
+    total_results?: number;
+};
+
 export type Item = {
     poster_path?: string;
     adult?: boolean;

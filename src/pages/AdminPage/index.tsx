@@ -9,13 +9,13 @@ import { useItems } from '../../hooks/useItems';
 
 const AdminPage: FC =()=>{ 
 
-    const { data, setSearch } = useItems();
+    const { data } = useItems();
 
 
     return (  
         <Layout page ='Admin'>
             <Search/>
-            <ItemsList items={data}/>
+            <ItemsList items={data.results}/>
         </Layout>
     )
 }

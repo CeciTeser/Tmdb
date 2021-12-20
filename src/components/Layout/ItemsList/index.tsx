@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import { Item } from "../../../types";
 import { StarRating } from "../../StarRaiting";
 import { Pagination } from "../../Common/Pagination";

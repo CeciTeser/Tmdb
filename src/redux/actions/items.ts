@@ -1,4 +1,4 @@
-import { Item } from "../../types";
+import { Item, TotalResults } from "../../types";
 import { apiTmdb } from "../../utils/axios";
 import { types } from "../types";
 
@@ -21,13 +21,13 @@ export const processItems = ({ page, search }: Prueba)=> {
             if(search){
 
                 response = await apiTmdb.get(`/search/multi?query=${search}&page=${page}`);
-                dispatch(okItems (response.data.results));
-                console.log("la resp", response.data.results)
+                dispatch(okItems (response.data));
+                
             
             } 
             else {
                 response = await apiTmdb.get(`/movie/top_rated?page=${page}`);
-                dispatch(okItems (response.data.results))
+                dispatch(okItems (response.data))
             }
         }
         catch (err) {
@@ -44,7 +44,7 @@ export const startItems =()=> ({
     payload:[],
 });
 
-export const okItems =(data: Item[])=>({
+export const okItems =(data: TotalResults)=>({
     type: types.itemsOk,
     payload:data,
 });
