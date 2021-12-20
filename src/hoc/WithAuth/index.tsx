@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useHistory } from "react-router-dom";
-import { Loading } from "../../components/Common/Loading ";
+import { Loading } from "../../components/Common/Loading";
 import { useAuth } from "../../hooks/useAuth";
 
 const publicRoutes = ["/login", "/sign-up", "/contact"];

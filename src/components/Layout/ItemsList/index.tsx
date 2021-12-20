@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Item } from "../../../types";
 import { StarRating } from "../../StarRaiting";
-import { Search } from "../Search";
 import { Pagination } from "../../Common/Pagination";
 
 
@@ -18,7 +17,6 @@ const ItemsList :FC<Props> = ({items}) =>{
 
     return(
         <div className="container">
-            <Search/>
             <div className="row">
                     {items?.map((item) => {
                         return (

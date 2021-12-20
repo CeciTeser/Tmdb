@@ -14,6 +14,7 @@ type ItemsStore={
 const useItems = () =>{
 
     const [page, setPage]= useState(1)
+    const [search, setSearch]= useState<string>('')
 
     const dispatch = useDispatch()
 
@@ -21,11 +22,11 @@ const useItems = () =>{
 
 
     useEffect (()=>{
-        dispatch(processItems(page))
+        dispatch(processItems({ page, search }))
     
-    },[dispatch, page])
+    },[dispatch, page, search])
 
-    return { data, page, setPage }
+    return { data, page, setPage, search, setSearch }
 
 }
 
