@@ -4,10 +4,7 @@ import { types } from "../types";
 const initialState = {
     data: [],
     loading: false,
-    // error: {
-    //     code:null, 
-    //     message
-    // },   
+    error: '' , 
 };
 
 type ItemsReducer = {

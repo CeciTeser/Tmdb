@@ -1,14 +1,16 @@
 import { FC } from "react";
+import ReactPaginate from 'react-paginate';
 import { useDispatch } from "react-redux";
 import { processItems } from "../../../redux/actions/items";
+
 import { useItems } from "../../../hooks/useItems";
-import ReactPaginate from 'react-paginate';
+
 
 
 
 const Pagination :FC = () =>{
 
-    const {setPage} = useItems()
+    const {data , setPage} = useItems()
 
     const dispatch = useDispatch()
 
@@ -27,7 +29,7 @@ const Pagination :FC = () =>{
             <ReactPaginate
                 previousLabel={'previous'}
                 nextLabel={'next'}
-                pageCount= {470}
+                pageCount= {data.total_pages}
                 marginPagesDisplayed = {1}
                 onPageChange = {handlePageClick}
                 containerClassName= {'pagination pagination-sm justify-content-center'} 
