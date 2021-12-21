@@ -1,9 +1,6 @@
-import { Dispatch, FC, SetStateAction } from "react";
+import { FC } from "react";
 import { useItems } from "../../../hooks/useItems";
 
-// type Props={
-//   setSearch: Dispatch<SetStateAction<string>>
-// }
 
 const Search: FC = () => {
 
