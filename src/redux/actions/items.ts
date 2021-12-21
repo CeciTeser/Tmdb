@@ -1,14 +1,14 @@
-import { Item, TotalResults } from "../../types";
+import { TotalResults } from "../../types";
 import { apiTmdb } from "../../utils/axios";
 import { types } from "../types";
 
-type Prueba={
+type ProcessItems={
     page: number, 
     search: string,  
 
 }
 
-export const processItems = ({ page, search }: Prueba)=> {
+export const processItems = ({ page, search }: ProcessItems)=> {
 
     return async (dispatch:any)=>{
 
