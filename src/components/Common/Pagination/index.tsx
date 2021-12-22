@@ -17,7 +17,6 @@ const Pagination :FC = () =>{
        
     }
 
-
     return(
             <ReactPaginate
                 previousLabel={'previous'}
