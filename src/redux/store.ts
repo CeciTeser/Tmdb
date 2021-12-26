@@ -3,6 +3,7 @@ import { usersReducer } from './reducers/users';
 import thunk from 'redux-thunk';
 import { currentUserReducer } from './reducers/currentUser';
 import { itemsReducer } from './reducers/items';
+import { itemsListReducer } from './reducers/AddDeleteItems';
 
 
 
@@ -21,6 +22,7 @@ const reducers = combineReducers({
     users: usersReducer,
     currentUser: currentUserReducer,
     items: itemsReducer,
+    itemsList: itemsListReducer,
 })
 
 export const store = createStore(reducers, 

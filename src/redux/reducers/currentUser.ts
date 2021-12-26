@@ -9,7 +9,6 @@ const initialState = {
 };
 
 
-
 export const currentUserReducer = (state = initialState , action: any) =>{
 
     switch(action.type){

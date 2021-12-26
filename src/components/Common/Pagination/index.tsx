@@ -8,7 +8,7 @@ import { useItems } from "../../../hooks/useItems";
 const Pagination :FC = () =>{
 
     const {data , setPage} = useItems()
-    
+        
     const handlePageClick= (data:any)=>{
 
         let currentPage = data.selected + 1 

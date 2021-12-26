@@ -1,6 +1,8 @@
 import { TotalResults } from "../../types";
-import { apiTmdb } from "../../utils/axios";
 import { types } from "../types";
+import { apiTmdb } from "../../utils/axios";
+
+
 
 type ProcessItems={
     page: number, 
@@ -55,4 +57,9 @@ export const deniedItems =(err:any)=>({
         message: err,
     }
 });
+
+
+
+
+
 
