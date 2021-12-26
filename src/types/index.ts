@@ -1,10 +1,10 @@
 export type User ={
     idDB:string,
-    name: string,
-    lastName: string,
-    birthday: string,
-    email: string,
-    password:string,
+    name?: string,
+    lastName?: string,
+    birthday?: string,
+    email?: string,
+    password?:string,
     sessionToken?: string,
     role:string,
 };
@@ -32,5 +32,14 @@ export type Item = {
     vote_count?: number;
     video?: boolean;
     vote_average: number;
-    media_type: string; 
+    media_type: string;
 };
+
+export type Store<I> = {
+    [name: string]: {
+        items: I[];
+        loading?: boolean;
+        error?: string;
+    };
+};
+

@@ -16,6 +16,7 @@ const useAuth = () => {
         localStorage.getItem("token") || undefined
     );
 
+
     const [hasUserLoggedIn, setHasUserLoggedIn] = useState<boolean>();
 
     const { push } = useHistory();
@@ -51,8 +52,11 @@ const useAuth = () => {
             (user) => user.email === email && user.password === password
         );
 
+
         if (user) {
             const token = await createUserToken(user);
+            localStorage.setItem("role", user.role)
+            
     
             if (token) {
             setTokenStorage(token);
@@ -67,6 +71,7 @@ const useAuth = () => {
         } catch (e) {
         
         }
+
     };
 
     const loginWithToken = async () => {

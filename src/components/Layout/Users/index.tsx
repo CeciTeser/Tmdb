@@ -10,6 +10,7 @@ type UserStore={
     }
 }
 
+
 const Users:FC=()=>{
 
     const dispatch = useDispatch()
@@ -17,6 +18,8 @@ const Users:FC=()=>{
 
     const {data} = useSelector((state:UserStore)=> state.users)
 
+
+    
 
     useEffect (()=>{
         dispatch(processUsers())

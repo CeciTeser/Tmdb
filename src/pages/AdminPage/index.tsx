@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Pagination } from '../../components/Common/Pagination';
 import { Layout } from '../../components/Layout';
 import { ItemsList } from '../../components/Layout/ItemsList';
 import { Search } from '../../components/Layout/Search';
@@ -16,6 +17,7 @@ const AdminPage: FC =()=>{
         <Layout page ='Admin'>
             <Search/>
             <ItemsList items={data.results}/>
+            <Pagination/>
         </Layout>
     )
 }
