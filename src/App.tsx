@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import UsersPage from './pages/UsersPage';
 import SeriesPage from './pages/SeriesPage';
 import AdminPage from './pages/AdminPage';
+import MoviesPage from './pages/MoviesPage';
 
 
 
@@ -19,6 +20,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/tv" component={SeriesPage}/>
+          <Route path="/movies" component={MoviesPage}/>
           <Route path="/admin" component={AdminPage}/>
           <Route path="/users" component={UsersPage}/>
           <Route path="/login" component={LoginPage}/>

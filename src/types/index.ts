@@ -35,11 +35,5 @@ export type Item = {
     media_type: string;
 };
 
-export type Store<I> = {
-    [name: string]: {
-        items: I[];
-        loading?: boolean;
-        error?: string;
-    };
-};
+
 

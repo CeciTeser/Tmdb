@@ -7,20 +7,20 @@ import { ItemsList, Layout } from '../../components/Layout';
 
 
 
-const SeriesPage:FC =()=>{ 
+const MoviesPage:FC =()=>{ 
 
     const { itemsListFB } = useItems()
 
-    const series = itemsListFB.items.filter(item => item.media_type === 'tv'); 
+    const movies = itemsListFB.items.filter(item => item.media_type === 'movie'); 
 
     return (  
-        <Layout page ='Series'>
+        <Layout page ='movies'>
 
-         <ItemsList items={series}/>
+         <ItemsList items={movies}/>
 
         </Layout>
     )
 }
-export default WithAuth (SeriesPage);
+export default WithAuth (MoviesPage);
 
 

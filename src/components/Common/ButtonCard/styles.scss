@@ -1,7 +1,13 @@
-.button-toggler{
-    width: 10rem;
-    height: 5rem;
+.toggle--button{
     font-size: 1rem;
     text-align: center;
-    background-color: pink;
+    cursor: pointer;
+    display: table;
+}
+
+.toggle--add{
+    background-color: red;
+}
+.toggle--delete{
+    background-color: rgb(79, 131, 199);
 }

@@ -5,6 +5,8 @@ const initialState = {
     email: '',
     sessionToken:'',
     password: '',
+    idDB: '',
+    role: '',
     loading: false, 
 };
 
@@ -24,6 +26,8 @@ export const currentUserReducer = (state = initialState , action: any) =>{
             email: action.payload.email,
             sessionToken:action.payload.sessionToken,
             password: action.payload.password,
+            idDB: action.payload.idDB,
+            role: action.payload.role,
             loading: false, 
         }
 
