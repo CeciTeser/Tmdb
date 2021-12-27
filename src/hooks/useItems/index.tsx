@@ -1,14 +1,22 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getItemsList, processDeleteItems, startItemsList } from "../../redux/actions/AddDeleteItems";
+import { getItemsList, processAddItems, processDeleteItems, startItemsList } from "../../redux/actions/AddDeleteItems";
 import { processItems } from "../../redux/actions/items";
-import { Item, TotalResults, Store } from "../../types";
+import { Item, TotalResults } from "../../types";
 
 type ItemsStore={
     items:{
         data: TotalResults,
         error: {errorCode:string }|null,
     }
+};
+
+type ItemsAddStore = {
+    itemsList: {
+        items: Item[];
+        loading?: boolean;
+        error?: string;
+    };
 };
 
 
@@ -21,7 +29,24 @@ const useItems = () =>{
 
     const {data} = useSelector((state:ItemsStore)=> state.items)
 
-    const itemsListFB = useSelector((state:Store<Item>)=> state.itemsList)
+    const itemsListFB = useSelector((state:ItemsAddStore)=> state.itemsList)
+
+
+    const addItems = async (itemSelected: Item | undefined, item: Item) =>{
+        
+            if(!itemSelected){
+                const response = (item.media_type)?item : {...item, media_type: 'movie'}
+                await dispatch(processAddItems(response))
+            }
+    };
+
+    const deleteItems = async (itemSelected: Item | undefined) =>{
+            if(itemSelected){
+            
+                await dispatch(processDeleteItems(itemSelected.idDB))
+
+            }
+    };
 
 
     useEffect (()=>{
@@ -37,7 +62,7 @@ const useItems = () =>{
     
     
 
-    return { data, page, setPage, search, setSearch, itemsListFB}
+    return { data, page, setPage, search, setSearch, itemsListFB, addItems, deleteItems}
 
 }
 

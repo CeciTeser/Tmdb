@@ -11,6 +11,10 @@ const Nav: FC = () => {
 
     const { logout } = useAuth();
 
+    const userRole=  localStorage.getItem('role')
+
+
+   
     return (
     
         <nav className="navbar navbar-light navbar-expand-lg navbar-background sticky-top">
@@ -41,17 +45,18 @@ const Nav: FC = () => {
                         
                         <li className="nav-item">
 
-                            <Link className= "nav-link" to="/series">Series</Link>
+                            <Link className= "nav-link" to="/tv">Series</Link>
                         </li>
 
                         <li className="nav-item">
                     
-                            <Link className= "nav-link" to="/users">Users</Link>
+                        {(userRole==='admin') && <Link className= "nav-link" to="/users">Users</Link>}
+
                         </li>
 
                         <li className="nav-item">
                     
-                            <Link className= "nav-link " to="/admin">Admin</Link>
+                        {(userRole==='admin') &&  <Link className= "nav-link " to="/admin">Admin</Link>}
 
                         </li>
                         <button onClick={logout}>Logout</button>

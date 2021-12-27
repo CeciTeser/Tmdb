@@ -1,8 +1,8 @@
-import { FC } from "react";
-import { useDispatch } from "react-redux";
+import { FC, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useItems } from "../../../hooks";
 import { processAddItems, processDeleteItems } from "../../../redux/actions/AddDeleteItems";
-import { Item } from "../../../types";
+import { Item, User } from "../../../types";
 
 
 
@@ -13,30 +13,45 @@ type Props={
     item:Item,
 }
 
+type CurrentUserStore = {
+  
+      currentUser: User[];
+      loading?: boolean;
+      error?: string;
+  
+};
+
 const ButtonCard:FC <Props> = ({item}) =>{
 
-  const dispatch = useDispatch()
+  const { itemsListFB, addItems, deleteItems } = useItems()
 
-  const {data, itemsListFB} = useItems()
+  const itemSelected = itemsListFB.items?.find(element => element.id=== item.id)
 
-  const itemSelected = data.results.find (element => element.id=== item.id)
+  const value = itemSelected? true : false 
 
-  const itemSelectedFB=itemsListFB.items?.find(element => element.id=== item.id)
+ const [selected , setSelected] = useState(value)
 
   const userRole=  localStorage.getItem('role')
-  
+
 
   return (
-    
-                     <div>
-                        <button onClick={() => dispatch (processAddItems(itemSelected))}> Add </button>
-                        <button onClick={() => console.log(dispatch (processDeleteItems(itemSelectedFB?.idDB)))}> Delete </button>
 
-                
-                      </div>
+          <div>
+            {(userRole === 'admin')?
+              <button
+                className={'toggle--button ' + (selected? 'toggle--add' : 'toggle--delete')}
+                onClick={()=>{
+                  setSelected(!selected)
+                  !selected? addItems(itemSelected, item): deleteItems(itemSelected)
 
-                      
-                
+                }}
+              >
+                {selected? 'Delete' : 'Add'}
+
+              </button> :
+              <button>User</button>
+              }
+          </div>           
   );
 };
 
