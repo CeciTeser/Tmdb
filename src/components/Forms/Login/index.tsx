@@ -14,7 +14,7 @@ import './styles.scss';
 
 const Login:FC =()=>{
 
-    const { login } = useAuth();
+    const { login, currentUser } = useAuth();
     const { push } = useHistory();
 
     const {
@@ -30,11 +30,13 @@ const Login:FC =()=>{
 
         try {
             await login(data.email, data.password);
-            push('/')
+            const lala=localStorage.getItem('userid')
+            push(`/user:${lala}`)
         } catch (err) {
             console.log('error', err);
             }
     }
+    console.log('CU', currentUser.idDB)
 
     return (
         <div className="conteiner-fluid" >

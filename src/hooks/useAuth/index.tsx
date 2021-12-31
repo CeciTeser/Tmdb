@@ -5,8 +5,12 @@ import { mapToArray } from "../../helpers";
 import { User } from "../../types";
 import { apiFirebase } from "../../utils";
 import { currentUserDenied, currentUserOk } from "../../redux/actions/currentUser";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
+type CurrentUserStore = {
+    currentUser: User;
+
+};
 
 const useAuth = () => {
 
@@ -18,6 +22,8 @@ const useAuth = () => {
 
 
     const [hasUserLoggedIn, setHasUserLoggedIn] = useState<boolean>();
+
+    const currentUser = useSelector((state:CurrentUserStore)=> state.currentUser)
 
     const { push } = useHistory();
 
@@ -56,6 +62,7 @@ const useAuth = () => {
         if (user) {
             const token = await createUserToken(user);
             localStorage.setItem("role", user.role)
+            localStorage.setItem("userid", user.idDB)
             
     
             if (token) {
@@ -102,7 +109,7 @@ const useAuth = () => {
         push('/login');
     };
 
-    const signUp = async(data: Omit<User, 'id'>) => {
+    const signUp = async(data: User) => {
         try {
             await signup(data);
             push('/login');
@@ -113,7 +120,7 @@ const useAuth = () => {
     };
 
 
-    return { login, loginWithToken, logout, signUp, hasUserLoggedIn,};
+    return { login, loginWithToken, logout, signUp, hasUserLoggedIn, currentUser};
 };
 
 export { useAuth };

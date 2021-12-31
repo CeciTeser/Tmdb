@@ -1,8 +1,7 @@
-import { FC, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useItems } from "../../../hooks";
-import { processAddItems, processDeleteItems } from "../../../redux/actions/AddDeleteItems";
-import { Item, User } from "../../../types";
+import { FC, useState } from "react";
+import { useAuth, useItems } from "../../../hooks";
+import { unpatchUser } from "../../../redux/actions/currentUser";
+import { Item } from "../../../types";
 
 
 
@@ -11,25 +10,31 @@ import './styles.scss';
 
 type Props={
     item:Item,
+  
 }
 
-type CurrentUserStore = {
-  
-      currentUser: User[];
-      loading?: boolean;
-      error?: string;
-  
-};
 
 const ButtonCard:FC <Props> = ({item}) =>{
 
-  const { itemsListFB, addItems, deleteItems } = useItems()
+  const { itemsListFB, addItems, deleteItems, watchedItems, notWatchedItems} = useItems()
+
+  const {currentUser} = useAuth()
 
   const itemSelected = itemsListFB.items?.find(element => element.id=== item.id)
+
+  const itemWatched = currentUser.watched?.includes(item.idDB)
+
+  console.log('CU', currentUser.idDB) 
+  console.log('itemWatched', itemWatched)
+  console.log('itemSelected', itemSelected)
+  
+
 
   const value = itemSelected? true : false 
 
  const [selected , setSelected] = useState(value)
+
+ const [watchedOrNot , setwatchedOrNot] = useState(false)
 
   const userRole=  localStorage.getItem('role')
 
@@ -48,9 +53,22 @@ const ButtonCard:FC <Props> = ({item}) =>{
               >
                 {selected? 'Delete' : 'Add'}
 
-              </button> :
-              <button>User</button>
-              }
+              </button> 
+              :
+              <button
+              className={'toggle--button ' + (itemWatched? 'toggle--watched' : 'toggle--notwatched')}
+              onClick={()=>{
+                setwatchedOrNot(!watchedOrNot)
+                !itemWatched? watchedItems(currentUser,  item) : notWatchedItems(currentUser, item)
+              }}
+
+              >
+
+              {itemWatched? 'Not Watched' : 'Watched'}
+              
+              </button>
+
+            }
           </div>           
   );
 };

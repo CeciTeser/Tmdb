@@ -7,6 +7,7 @@ export type User ={
     password?:string,
     sessionToken?: string,
     role:string,
+    watched?:string[], 
 };
 
 export type TotalResults = {

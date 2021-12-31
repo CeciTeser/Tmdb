@@ -1,9 +1,9 @@
-import { useEffect } from "react";
 import { mapToArray } from "../../helpers";
+import { useAuth } from "../../hooks";
 import { Item } from "../../types";
 import { apiFirebase } from "../../utils";
 import { types } from "../types";
-import { deniedItems, okItems, startItems } from "./items";
+
 
 
 //----------ADD ITEMS TO FIREBASE------------
@@ -85,3 +85,5 @@ export const getItemsList = () => {
         }
     };
 };
+
+

@@ -1,5 +1,5 @@
 import { mapToArray } from "../../helpers";
-import { User } from "../../types";
+import { Item, User } from "../../types";
 import { apiFirebase } from "../../utils/axios";
 import { types } from "../types";
 
@@ -52,4 +52,3 @@ export const deleteUsers = (user:string) => {
     };
     
 };
-

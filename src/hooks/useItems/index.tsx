@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getItemsList, processAddItems, processDeleteItems, startItemsList } from "../../redux/actions/AddDeleteItems";
+import { useAuth } from "..";
+import { getItemsList, processAddItems, processDeleteItems } from "../../redux/actions/addDeleteItems";
+import { patchUser, unpatchUser } from "../../redux/actions/currentUser";
 import { processItems } from "../../redux/actions/items";
-import { Item, TotalResults } from "../../types";
+import { Item, TotalResults, User } from "../../types";
 
 type ItemsStore={
     items:{
@@ -20,16 +22,22 @@ type ItemsAddStore = {
 };
 
 
+
+
 const useItems = () =>{
 
     const [page, setPage]= useState(1)
     const [search, setSearch]= useState<string>('')
+
+
+    const {currentUser} = useAuth()
 
     const dispatch = useDispatch()
 
     const {data} = useSelector((state:ItemsStore)=> state.items)
 
     const itemsListFB = useSelector((state:ItemsAddStore)=> state.itemsList)
+
 
 
     const addItems = async (itemSelected: Item | undefined, item: Item) =>{
@@ -40,6 +48,7 @@ const useItems = () =>{
             }
     };
 
+
     const deleteItems = async (itemSelected: Item | undefined) =>{
             if(itemSelected){
             
@@ -47,6 +56,24 @@ const useItems = () =>{
 
             }
     };
+
+    const watchedItems = async (userid:User, itemSelected: Item) =>{
+
+        console.log(itemSelected, userid);
+
+        if(userid && !userid.watched?.includes(itemSelected.idDB))
+            await dispatch(patchUser(userid?.idDB , {...userid, watched: [itemSelected.idDB]}))
+
+    };
+
+
+    const notWatchedItems = async (userid:User, itemSelected: Item) =>{
+        
+      if(userid?.watched?.includes(itemSelected.idDB)){
+          await dispatch(unpatchUser(currentUser.idDB  , itemSelected?.idDB))
+      }
+    };
+
 
 
     useEffect (()=>{
@@ -62,7 +89,7 @@ const useItems = () =>{
     
     
 
-    return { data, page, setPage, search, setSearch, itemsListFB, addItems, deleteItems}
+    return { data, page, setPage, search, setSearch, itemsListFB, addItems, deleteItems, watchedItems, currentUser, notWatchedItems }
 
 }
 
