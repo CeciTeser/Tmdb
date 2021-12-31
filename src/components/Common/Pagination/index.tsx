@@ -3,7 +3,7 @@ import ReactPaginate from 'react-paginate';
 
 import { useItems } from "../../../hooks/useItems";
 
-
+import './styles.scss';
 
 const Pagination :FC = () =>{
 
@@ -17,8 +17,10 @@ const Pagination :FC = () =>{
        
     }
 
-    return(
-            <ReactPaginate
+    return( 
+        <div className="container mt-5 d-flex align-items-center justify-content-center react-paginate">
+
+            <ReactPaginate 
                 previousLabel={'previous'}
                 nextLabel={'next'}
                 pageCount={data.total_pages}
@@ -34,6 +36,7 @@ const Pagination :FC = () =>{
                 breakLinkClassName= {'page-link'}
                 activeClassName = {'active'}
             /> 
+        </div>
     )
 }  
 
