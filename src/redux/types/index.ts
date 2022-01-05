@@ -14,9 +14,5 @@ export const types = {
     itemsListInit: 'itemsListInit',
     itemsListOk: 'itemsListOk',
     itemsListError: 'itemsListError',
-
-    watchedByItemsInit: 'watchedByItemsInit',
-    watchedByItemsOk: 'watchedByItemsOk',
-    watchedByItemsError: 'watchedByItemsError',
-
+    
 };

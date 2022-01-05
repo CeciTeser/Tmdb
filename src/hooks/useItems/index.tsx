@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useAuth } from "..";
-import { getItemsList, processAddItems, processDeleteItems } from "../../redux/actions/addDeleteItems";
+import { getItemsList, processAddItems, processDeleteItems } from "../../redux/actions/AddDeleteItems";
 import { patchUser, unpatchUser } from "../../redux/actions/currentUser";
 import { processItems } from "../../redux/actions/items";
 import { Item, TotalResults, User } from "../../types";
@@ -59,21 +59,27 @@ const useItems = () =>{
 
     const watchedItems = async (userid:User, itemSelected: Item) =>{
 
-        console.log(itemSelected, userid);
+        const array = userid.watched? userid.watched : []
 
-        if(userid && !userid.watched?.includes(itemSelected.idDB))
-            await dispatch(patchUser(userid?.idDB , {...userid, watched: [itemSelected.idDB]}))
+        if(userid && !userid.watched?.includes(itemSelected.id)){
+            
+            array.push(itemSelected.id)
 
+           const data = {...userid, watched: array}
+
+
+            await dispatch(patchUser(userid?.idDB , data))
+        }
     };
 
 
     const notWatchedItems = async (userid:User, itemSelected: Item) =>{
         
-      if(userid?.watched?.includes(itemSelected.idDB)){
+      if(userid?.watched?.includes(itemSelected.id)){
           await dispatch(unpatchUser(currentUser.idDB  , itemSelected?.idDB))
       }
     };
-
+ 
 
 
     useEffect (()=>{

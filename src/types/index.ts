@@ -7,7 +7,7 @@ export type User ={
     password?:string,
     sessionToken?: string,
     role:string,
-    watched?:string[], 
+    watched?:number[], 
 };
 
 export type TotalResults = {
@@ -23,7 +23,7 @@ export type Item = {
     overview?: string;
     release_date?: string;
     genre_ids?: number[];
-    id: number;
+    id: number ;
     idDB: string;
     original_title?: string;
     original_language?: string;

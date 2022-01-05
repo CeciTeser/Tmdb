@@ -3,12 +3,12 @@ import { usersReducer } from './reducers/users';
 import thunk from 'redux-thunk';
 import { currentUserReducer } from './reducers/currentUser';
 import { itemsReducer } from './reducers/items';
-import { itemsListReducer  } from './reducers/addDeleteItems'
-import { watchedByReducer } from './reducers/watchedByItems';
+import { itemsListReducer } from './reducers/addDeleteItems'
 
 
 
-declare global {
+
+declare global {    
     interface Window {
         __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
     }
@@ -24,7 +24,6 @@ const reducers = combineReducers({
     currentUser: currentUserReducer,
     items: itemsReducer,
     itemsList: itemsListReducer,
-    watchedBy: watchedByReducer, 
 })
 
 export const store = createStore(reducers, 
