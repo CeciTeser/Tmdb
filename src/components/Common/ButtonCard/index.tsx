@@ -22,12 +22,7 @@ const ButtonCard:FC <Props> = ({item}) =>{
 
   const itemSelected = itemsListFB.items?.find(element => element.id=== item.id)
 
-  const itemWatched = currentUser.watched?.includes(item.idDB)
-
-  console.log('CU', currentUser.idDB) 
-  console.log('itemWatched', itemWatched)
-  console.log('itemSelected', itemSelected)
-  
+  const itemWatched = currentUser.watched?.includes(item.id)
 
 
   const value = itemSelected? true : false 
@@ -56,7 +51,7 @@ const ButtonCard:FC <Props> = ({item}) =>{
               </button> 
               :
               <button
-              className={'toggle--button ' + (itemWatched? 'toggle--watched' : 'toggle--notwatched')}
+              className={'toggle--button '}
               onClick={()=>{
                 setwatchedOrNot(!watchedOrNot)
                 !itemWatched? watchedItems(currentUser,  item) : notWatchedItems(currentUser, item)
@@ -64,7 +59,7 @@ const ButtonCard:FC <Props> = ({item}) =>{
 
               >
 
-              {itemWatched? 'Not Watched' : 'Watched'}
+              {itemWatched? 'Watched' : 'Not Watched'}
               
               </button>
 

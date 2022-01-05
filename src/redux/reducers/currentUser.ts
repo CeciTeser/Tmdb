@@ -7,6 +7,7 @@ const initialState = {
     password: '',
     idDB: '',
     role: '',
+    watched: '',
     loading: false, 
 };
 
@@ -28,6 +29,7 @@ export const currentUserReducer = (state = initialState , action: any) =>{
             password: action.payload.password,
             idDB: action.payload.idDB,
             role: action.payload.role,
+            watched:action.payload.watched,
             loading: false, 
         }
 

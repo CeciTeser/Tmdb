@@ -49,9 +49,9 @@ export const patchUser = (userid:string , data:User) => {
 
             await apiFirebase.patch(`/users/${userid}.json`, data)
 
-            const response = await apiFirebase.get(`/users.json`);
-            
-            dispatch(currentUserOk ((response.data)))
+            const response = await apiFirebase.get(`/users/${userid}.json`);
+
+            dispatch(currentUserOk (response.data))
 
 
         } catch (err) {
