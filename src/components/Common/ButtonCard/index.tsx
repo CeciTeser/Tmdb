@@ -1,6 +1,5 @@
 import { FC, useState } from "react";
 import { useAuth, useItems } from "../../../hooks";
-import { unpatchUser } from "../../../redux/actions/currentUser";
 import { Item } from "../../../types";
 
 
@@ -24,12 +23,11 @@ const ButtonCard:FC <Props> = ({item}) =>{
 
   const itemWatched = currentUser.watched?.includes(item.id)
 
-
   const value = itemSelected? true : false 
 
- const [selected , setSelected] = useState(value)
+  const [selected , setSelected] = useState(value)
 
- const [watchedOrNot , setwatchedOrNot] = useState(false)
+  const [watchedOrNot , setwatchedOrNot] = useState(false)
 
   const userRole=  localStorage.getItem('role')
 
@@ -51,10 +49,10 @@ const ButtonCard:FC <Props> = ({item}) =>{
               </button> 
               :
               <button
-              className={'toggle--button '}
+              className={'toggle--button ' + (itemWatched? 'toggle--watched' : 'toggle--unwatched')}
               onClick={()=>{
                 setwatchedOrNot(!watchedOrNot)
-                !itemWatched? watchedItems(currentUser,  item) : notWatchedItems(currentUser, item)
+                !itemWatched? watchedItems(currentUser,  item): notWatchedItems(currentUser, item)
               }}
 
               >
