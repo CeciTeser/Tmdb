@@ -60,22 +60,3 @@ export const patchUser = (userid:string , data:User) => {
     };
 
 };
-
-
-export const unpatchUser = (userid:string , itemid:string ) => { 
-
-    return async (dispatch:any)=>{
-    
-        dispatch(currentUserStart())
-    
-        try {
-            await apiFirebase.delete(`/users/${userid}/watched/${itemid}.json`);
-            const response = await apiFirebase.get(`/users/${userid}.json`);
-            dispatch(currentUserOk (response.data));
-    
-        } catch (err) {
-            dispatch(currentUserDenied(err));
-        }
-    };
-    
-    };
