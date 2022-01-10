@@ -9,7 +9,7 @@ import './styles.scss';
 
 const Nav: FC = () => {
 
-    const { logout } = useAuth();
+    const { logout , currentUser} = useAuth();
 
     const userRole=  localStorage.getItem('role')
 
@@ -33,19 +33,19 @@ const Nav: FC = () => {
 
                         <li className="nav-item">
                 
-                            <Link className= "nav-link" to="/dashboard">Home</Link>
+                            <Link className= "nav-link" to={`/dashboard/user:${currentUser.idDB}`}>Home</Link>
                         
                         </li>
 
                         <li className="nav-item">
 
-                            <Link className= "nav-link" to="/movies">Movies</Link>
+                            <Link className= "nav-link" to={`/movies/user:${currentUser.idDB}`} >Movies</Link>
             
                         </li>
                         
                         <li className="nav-item">
 
-                            <Link className= "nav-link" to="/tv">Series</Link>
+                            <Link className= "nav-link" to={`/tv/user:${currentUser.idDB}`}>Series</Link>
                         </li>
 
                         <li className="nav-item">

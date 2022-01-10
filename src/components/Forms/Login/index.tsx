@@ -30,13 +30,12 @@ const Login:FC =()=>{
 
         try {
             await login(data.email, data.password);
-            const lala=localStorage.getItem('userid')
-            push(`/user:${lala}`)
+            push(`/user:${currentUser.idDB}`)
         } catch (err) {
             console.log('error', err);
             }
     }
-    console.log('CU', currentUser.idDB)
+
 
     return (
         <div className="conteiner-fluid" >

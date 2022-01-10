@@ -19,7 +19,7 @@ const WithAuth: withAuthenticationFn = (Component) => {
 
         if (hasUserLoggedIn === undefined) return <Loading />;
 
-        if (hasUserLoggedIn && publicRoutes.includes(location.pathname)) push(`/user:${currentUser?.idDB}`);
+        if (hasUserLoggedIn && publicRoutes.includes(location.pathname)) push(`/user:${currentUser.idDB}`);
 
         if (hasUserLoggedIn === false && !publicRoutes.includes(location.pathname))
         push("/login");
