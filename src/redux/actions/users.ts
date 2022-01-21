@@ -3,6 +3,8 @@ import { Item, User } from "../../types";
 import { apiFirebase } from "../../utils/axios";
 import { types } from "../types";
 
+// ----------GET USERS FROM DB------------
+
 export const processUsers = () => { 
 
     return async (dispatch:any)=>{
@@ -35,6 +37,9 @@ export const deniedUsers =(err:any)=>({
         message: err,
     }
 });
+
+
+// ----------DELETE USERS FROM DB ------------
 
 export const deleteUsers = (user:string) => { 
 

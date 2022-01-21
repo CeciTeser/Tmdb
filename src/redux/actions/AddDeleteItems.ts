@@ -1,12 +1,11 @@
 import { mapToArray } from "../../helpers";
-import { useAuth } from "../../hooks";
 import { Item } from "../../types";
 import { apiFirebase } from "../../utils";
 import { types } from "../types";
 
 
 
-//----------ADD ITEMS TO FIREBASE------------
+//----------ADD ITEMS TO DB------------
 
 export const processAddItems = (data: any) => { 
 
@@ -48,7 +47,7 @@ error: {
 });
 
 
-//----------DELETE ITEMS FROM FIREBASE------------
+//----------DELETE ITEMS FROM DB------------
 
 export const processDeleteItems = (itemid:string | undefined) => { 
 
@@ -68,7 +67,7 @@ return async (dispatch:any)=>{
 
 };
 
-//----------GET ITEMS LIST FROM FIREBASE------------
+//----------GET ITEMS LIST FROM DB------------
 
 export const getItemsList = () => {
     
@@ -85,5 +84,3 @@ export const getItemsList = () => {
         }
     };
 };
-
-

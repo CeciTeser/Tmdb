@@ -4,8 +4,10 @@ export const mapToArray = (object: any)=>{
 
     for (const elem in object) {
     array.push({
+        
         ...object[elem],
         idDB: elem,
+        
     });
     }
 

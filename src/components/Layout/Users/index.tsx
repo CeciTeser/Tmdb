@@ -17,8 +17,6 @@ const Users:FC=()=>{
     
 
     const {data} = useSelector((state:UserStore)=> state.users)
-
-
     
 
     useEffect (()=>{

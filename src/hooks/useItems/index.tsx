@@ -22,18 +22,16 @@ type ItemsAddStore = {
 
 
 
-
 const useItems = () =>{
 
     const [page, setPage]= useState(1)
     const [search, setSearch]= useState<string>('')
-
+  
     const dispatch = useDispatch()
 
     const {data} = useSelector((state:ItemsStore)=> state.items)
 
     const itemsListFB = useSelector((state:ItemsAddStore)=> state.itemsList)
-
 
 
     const addItems = async (itemSelected: Item | undefined, item: Item) =>{
@@ -95,8 +93,8 @@ const useItems = () =>{
         dispatch(processItems({ page, search }))
     
     },[dispatch, page, search])
-    
-    
+
+
 
     return { data, page, setPage, search, setSearch, itemsListFB, addItems, deleteItems, watchedItems, notWatchedItems }
 
