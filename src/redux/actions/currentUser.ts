@@ -3,6 +3,7 @@ import { Item, User } from "../../types";
 import { apiFirebase } from "../../utils";
 import { types } from "../types";
 
+// ----------GET CURRENT USER ------------
 
 export const processCurrentUser = (user: User) => {
     return async (dispatch: any) => {
@@ -37,6 +38,10 @@ export const currentUserDenied =(err:any)=>({
         message: err,
     }
 });
+
+
+// ----------MODIFY CURRENTUSER TO ADD OR DELETE WATCHED OR NOT MOVIES------------
+
 
 export const patchUser = (userid:string , data:User) => { 
   

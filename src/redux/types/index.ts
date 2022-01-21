@@ -14,5 +14,9 @@ export const types = {
     itemsListInit: 'itemsListInit',
     itemsListOk: 'itemsListOk',
     itemsListError: 'itemsListError',
+
+    itemByIdInit: 'itemByIdInit',
+    itemByIdOk: 'itemByIdOk',
+    itemByIdError: 'itemByIdError',
     
 };

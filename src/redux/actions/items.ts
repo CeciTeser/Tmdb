@@ -10,6 +10,8 @@ type ProcessItems={
 
 }
 
+// ----------GET/SEARCH ITEMS FROM API ------------
+
 export const processItems = ({ page, search }: ProcessItems)=> {
 
     return async (dispatch:any)=>{
