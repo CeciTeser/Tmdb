@@ -8,8 +8,7 @@ import './styles.scss';
 
 
 type Props={
-    item:Item,
-  
+    item:Item,  
 }
 
 
