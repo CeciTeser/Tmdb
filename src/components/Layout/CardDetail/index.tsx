@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
 import { StarRating } from "../..";
 import { processItemById } from "../../../redux/actions/itemById";
 
@@ -25,25 +26,20 @@ type ItembyIdStore={
 const CardDetail :FC<Props> = ({items}) =>{
 
     const dispatch = useDispatch()
+    const {push} = useHistory()
 
-    const [itemById, setItemById]= useState<string>('')
+    const {idItem} = useParams<{idItem:string}>()
 
-    const  [itemId]= useState< string >(
-        localStorage.getItem("itemid")!
-    );
 
     const {data} = useSelector((state:ItembyIdStore)=> state.itemById)
 
-
-    console.log('Redux',data)
     
     useEffect (()=>{
 
-        dispatch(processItemById(itemId))
+        dispatch(processItemById(idItem))
         
-    },[dispatch])
+    },[dispatch, idItem])
     
-    console.log('itemIdSelected',itemId )
 
     return(
 
@@ -71,10 +67,7 @@ const CardDetail :FC<Props> = ({items}) =>{
                     {items?.map((item) => {
                         return (
                             <div className="col-md-3 mb-5">
-                                <div className="card each-card" key={item.id}>
-                                    <a href={`/detail/itemId:${item.id}`} className="stretched-link"
-                                    onClick={() => setItemById (item.idDB)}
-                                    ></a>
+                                <div className="card each-card" key={item.id}  onClick={() => push(`/detail/${item.idDB}`)}>
                                     <div className="card-body d-flex flex-column justify-content-center align-items-center">
                                         <img src ={ `http://image.tmdb.org/t/p/w500${item.poster_path}`}  className="img-fluid" alt={item.title}></img>
                                         <h5 className="card-title mt-3">{item.title}</h5>

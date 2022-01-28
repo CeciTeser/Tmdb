@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Layout } from '../../components/Layout';
 import { CardDetail } from '../../components/Layout/CardDetail';
 import { WithAuth } from '../../hoc';
@@ -10,6 +10,8 @@ import { useItems } from '../../hooks';
 const CardDetailPage: FC =()=>{ 
 
 const {goBack} = useHistory()
+
+const {idItem} = useParams<{idItem:string}>()
 
 const { itemsListFB } = useItems()
 
