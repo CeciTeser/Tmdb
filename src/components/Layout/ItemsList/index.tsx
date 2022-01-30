@@ -1,27 +1,45 @@
 import { FC, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Item } from "../../../types";
+import { Item, Operation } from "../../../types";
 import { StarRating } from "../../StarRaiting";
 import { ButtonCard } from "../../Common";
 
 
 import './styles.scss';
+import { useAuth, useItems } from "../../../hooks";
 
 
 type Props={
     items:Item[], 
 }
 
-
 const ItemsList :FC<Props> = ({items}) =>{
 
     const {push} = useHistory()
+
+    const { itemsListFB, addItems, deleteItems, watchedItems, notWatchedItems} = useItems()
+
+    const {currentUser} = useAuth()
+
+    const checkIfItemsExistsIntoDB = (itemId: number) => !!itemsListFB.items?.find(element => element.id === itemId)
+
+    const checkIfItemWatched = (itemId: number) =>  !!currentUser.watched?.includes(itemId)
+
+    const handleItemClick = (op: Operation, item: Item) => {
+        switch(op) {
+            case 'add' : addItems(item); break;
+            case 'delete': deleteItems(item); break;
+            case 'watched' : notWatchedItems(currentUser, item); break;
+            case 'unwatched' : watchedItems(currentUser, item); break;
+            default: return null;
+        }
+    }
 
 
     return(
         <div className="container">
             <div className="row" >
-                    {items?.map((item) => {                       
+                    {items && items?.map((item) => {                       
 
                         const imageBroken = (!item.poster_path)? "https://i.stack.imgur.com/6M513.png" : `http://image.tmdb.org/t/p/w500${item.poster_path}`
 
@@ -35,7 +53,12 @@ const ItemsList :FC<Props> = ({items}) =>{
                                         <StarRating stars={item.vote_average} />
                                     </div>
                                 </div>
-                                <ButtonCard item={item}/>
+                                <ButtonCard 
+                                    itemExists={checkIfItemsExistsIntoDB(item.id)} 
+                                    itemWatched={checkIfItemWatched(item.id)}
+                                    handleClick={(op) => handleItemClick(op, item)} 
+                                    isAdmin={currentUser.role === 'admin'}
+                                />
                             </div>
                         );
                     })}

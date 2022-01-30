@@ -6,7 +6,7 @@ export type User ={
     email?: string,
     password?:string,
     sessionToken?: string,
-    role:string,
+    role: 'admin' | 'user',
     watched?:number[], 
 };
 
@@ -35,6 +35,8 @@ export type Item = {
     vote_average: number;
     media_type: string;
 };
+
+export type Operation = 'add' |  'delete' | 'watched' | 'unwatched'
 
 
 

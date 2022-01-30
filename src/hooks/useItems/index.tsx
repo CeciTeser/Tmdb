@@ -34,12 +34,9 @@ const useItems = () =>{
     const itemsListFB = useSelector((state:ItemsAddStore)=> state.itemsList)
 
 
-    const addItems = async (itemSelected: Item | undefined, item: Item) =>{
-        
-            if(!itemSelected){
-                const response = (item.media_type)?item : {...item, media_type: 'movie'}
-                await dispatch(processAddItems(response))
-            }
+    const addItems = async (item: Item) =>{
+        const response = (item.media_type)?item : {...item, media_type: 'movie'}
+        await dispatch(processAddItems(response))
     };
 
 
