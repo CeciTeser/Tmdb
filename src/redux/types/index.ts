@@ -18,5 +18,9 @@ export const types = {
     itemByIdInit: 'itemByIdInit',
     itemByIdOk: 'itemByIdOk',
     itemByIdError: 'itemByIdError',
+
+    videoInit: 'videoInit',
+    videoOk: 'videoOk',
+    videoError: 'videoError',
     
 };
