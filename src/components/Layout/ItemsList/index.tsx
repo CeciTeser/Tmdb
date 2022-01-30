@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { useHistory } from "react-router-dom";
 import { Item } from "../../../types";
 import { StarRating } from "../../StarRaiting";
@@ -8,15 +8,16 @@ import { ButtonCard } from "../../Common";
 import './styles.scss';
 
 
+
+
 type Props={
     items:Item[], 
 }
 
-
 const ItemsList :FC<Props> = ({items}) =>{
 
-    const {push} = useHistory()
 
+    const {push} = useHistory()
 
     return(
         <div className="container">

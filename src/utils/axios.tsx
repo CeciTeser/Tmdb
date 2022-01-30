@@ -3,7 +3,7 @@ import axios from 'axios';
 //--------FIREBASE--------
 
 const apiFirebase = axios.create({
-    baseURL:'https://tmdb2-dc893-default-rtdb.firebaseio.com/'
+    baseURL:'https://tmdb3-48b40-default-rtdb.firebaseio.com/'
 
     //baseURL: process.env.REACT_APP_FIREBASE
 });

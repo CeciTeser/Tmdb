@@ -1,53 +1,37 @@
-import { FC, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { FC } from "react";
+import { useHistory } from "react-router-dom";
 import { StarRating } from "../..";
-import { processItemById } from "../../../redux/actions/itemById";
-
+import { useVideos } from "../../../hooks";
 import { Item } from "../../../types";
 
 
 
-// import './styles.scss';
+import './styles.scss';
 
 
 type Props={
     items:Item[],
 }
 
-type ItembyIdStore={
-   itemById:{
-        data: Item,
-    }
-};
-
-
 
 const CardDetail :FC<Props> = ({items}) =>{
 
-    const dispatch = useDispatch()
+    const {goBack} = useHistory()
+
     const {push} = useHistory()
 
-    const {idItem} = useParams<{idItem:string}>()
+    const {data, videoList } = useVideos()
 
+    console.log(videoList.data)
 
-    const {data} = useSelector((state:ItembyIdStore)=> state.itemById)
-
-    
-    useEffect (()=>{
-
-        dispatch(processItemById(idItem))
-        
-    },[dispatch, idItem])
-    
 
     return(
 
         <div className="container">
             
-            <div className="card mb-5"> 
+            <section className="card mb-5"> 
                 <div className="row g-0">
-                    <div className="col-md-8">
+                    <div className="col-md-8 d-flex">
                         <div className="card-body">
                             <h5 className="card-title">{data.title}</h5>
                             <p className="card-text">{data.original_title}</p>
@@ -55,15 +39,34 @@ const CardDetail :FC<Props> = ({items}) =>{
                             <p className="card-text">{data.overview}</p>
                             <p className="card-text"> <strong>Release date:</strong> {data.release_date}</p>
                             <p className="card-text"> <strong>Original language:</strong> {data.original_language}</p>
+                            <section  className="pt-5 row">
+                                <h3>Trailers</h3>
+                                {videoList.data?.map((video) => {
+                                    return (
+                                        <div className='col-6'>
+                                            <iframe
+                                            title={video.name}
+                                            width="300"
+                                            height="200"
+                                            src={`https://www.youtube.com/embed/${video.key}`}
+                                            allowFullScreen
+                                            >
+                                            </iframe>
+                                        </div>
+                                    );
+                                })}
+                            </section>
                         </div>
                     </div>
                     <div className="col-md-4">
                         <img src ={`http://image.tmdb.org/t/p/w500${data.poster_path}`} className="img-fluid rounded-start" alt="PosterPath"/>
-                    </div>
+                    </div>  
                 </div>
-            </div>
-            <h2>ALSO...</h2>
-            <div className="row" >
+            </section>
+            <button className="goback-btn mt-3 mb-5" onClick={goBack}> <i className="fas fa-chevron-left pe-2"></i>GO BACK</button>
+
+            <h2 className="mt-5 mb-5">ALSO...</h2>
+            <section className="row" >
                     {items?.map((item) => {
                         return (
                             <div className="col-md-3 mb-5">
@@ -78,9 +81,9 @@ const CardDetail :FC<Props> = ({items}) =>{
                             </div>
                         );
                     })}
-            </div> 
-        </div>  
+            </section> 
 
+        </div>  
     )
 };
 
