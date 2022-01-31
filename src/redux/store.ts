@@ -5,6 +5,7 @@ import { currentUserReducer } from './reducers/currentUser';
 import { itemsReducer } from './reducers/items';
 import { itemsListReducer } from './reducers/AddDeleteItems'
 import { itemByIdReducer } from './reducers/itemById';
+import { videosReducer } from './reducers/videos';
 
 
 
@@ -26,6 +27,7 @@ const reducers = combineReducers({
     items: itemsReducer,
     itemsList: itemsListReducer,
     itemById: itemByIdReducer,
+    video: videosReducer,
 })
 
 export const store = createStore(reducers, 

@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { useHistory } from "react-router-dom";
 import { Item, Operation } from "../../../types";
 import { StarRating } from "../../StarRaiting";
@@ -9,13 +9,14 @@ import './styles.scss';
 import { useAuth, useItems } from "../../../hooks";
 
 
+
+
 type Props={
     items:Item[], 
 }
 
 const ItemsList :FC<Props> = ({items}) =>{
 
-    const {push} = useHistory()
 
     const { itemsListFB, addItems, deleteItems, watchedItems, notWatchedItems} = useItems()
 
@@ -34,6 +35,9 @@ const ItemsList :FC<Props> = ({items}) =>{
             default: return null;
         }
     }
+
+
+    const {push} = useHistory()
 
 
     return(
