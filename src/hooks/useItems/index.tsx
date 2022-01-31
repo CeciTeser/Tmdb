@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getItemsList, processAddItems, processDeleteItems } from "../../redux/actions/AddDeleteItems";
+import { getItemsList, processAddItems, processDeleteItems } from "../../redux/actions/addDeleteItems";
 import { patchUser } from "../../redux/actions/currentUser";
 import { processItems } from "../../redux/actions/items";
 import { Item, TotalResults, User } from "../../types";

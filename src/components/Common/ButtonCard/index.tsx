@@ -1,6 +1,5 @@
-import { FC, useState } from "react";
-import { useAuth, useItems } from "../../../hooks";
-import { Item, Operation, User } from "../../../types";
+import { FC } from "react";
+import { Operation } from "../../../types";
 
 
 
@@ -16,20 +15,6 @@ type Props={
 
 
 const ButtonCard:FC <Props> = ({itemExists, itemWatched, isAdmin, handleClick}) =>{
-
-  // const { itemsListFB, addItems, deleteItems, watchedItems, notWatchedItems} = useItems()
-
-  // const {currentUser} = useAuth()
-
-  // const itemSelected = itemsListFB.items?.find(element => element.id=== item.id)
-
-  // const value = itemSelected? true : false 
-  
-  // const [selected , setSelected] = useState(value)
-
-  // const itemWatched = currentUser.watched?.includes(item.id)
-
-  // const userRole=  localStorage.getItem('role')
 
   return (
 
