@@ -1,14 +1,12 @@
 import { FC } from "react";
 import { useHistory } from "react-router-dom";
+import { useAuth, useItems } from "../../../hooks";
 import { Item, Operation } from "../../../types";
 import { StarRating } from "../../StarRaiting";
 import { ButtonCard } from "../../Common";
 
 
 import './styles.scss';
-import { useAuth, useItems } from "../../../hooks";
-
-
 
 
 type Props={
@@ -21,6 +19,8 @@ const ItemsList :FC<Props> = ({items}) =>{
     const { itemsListFB, addItems, deleteItems, watchedItems, notWatchedItems} = useItems()
 
     const {currentUser} = useAuth()
+
+    const {push} = useHistory()
 
     const checkIfItemsExistsIntoDB = (itemId: number) => !!itemsListFB.items?.find(element => element.id === itemId)
 
@@ -35,9 +35,6 @@ const ItemsList :FC<Props> = ({items}) =>{
             default: return null;
         }
     }
-
-
-    const {push} = useHistory()
 
 
     return(
