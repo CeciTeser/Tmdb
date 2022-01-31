@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { useAuth, useItems } from "../../../hooks";
-import { Item } from "../../../types";
+import { Item, Operation, User } from "../../../types";
 
 
 
@@ -8,58 +8,47 @@ import './styles.scss';
 
 
 type Props={
-    item:Item,  
+  itemExists: boolean
+  itemWatched: boolean
+  isAdmin: boolean
+  handleClick: (op: Operation) => void
 }
 
 
-const ButtonCard:FC <Props> = ({item}) =>{
+const ButtonCard:FC <Props> = ({itemExists, itemWatched, isAdmin, handleClick}) =>{
 
-  const { itemsListFB, addItems, deleteItems, watchedItems, notWatchedItems} = useItems()
+  // const { itemsListFB, addItems, deleteItems, watchedItems, notWatchedItems} = useItems()
 
-  const {currentUser} = useAuth()
+  // const {currentUser} = useAuth()
 
-  const itemSelected = itemsListFB.items?.find(element => element.id=== item.id)
+  // const itemSelected = itemsListFB.items?.find(element => element.id=== item.id)
 
-  const itemWatched = currentUser.watched?.includes(item.id)
+  // const value = itemSelected? true : false 
+  
+  // const [selected , setSelected] = useState(value)
 
-  const value = itemSelected? true : false 
+  // const itemWatched = currentUser.watched?.includes(item.id)
 
-  const [selected , setSelected] = useState(value)
-
-  const [watchedOrNot , setwatchedOrNot] = useState(false)
-
-  const userRole=  localStorage.getItem('role')
-
+  // const userRole=  localStorage.getItem('role')
 
   return (
 
           <div>
-            {(userRole === 'admin')?
+            {isAdmin ?
               <button
-                className={'toggle--button ' + (selected? 'toggle--add' : 'toggle--delete')}
-                onClick={()=>{
-                  setSelected(!selected)
-                  !selected? addItems(itemSelected, item): deleteItems(itemSelected)
-
-                }}
+                className={'toggle--button ' + (itemExists? 'toggle--add' : 'toggle--delete')}
+                onClick={() => itemExists ? handleClick('delete') : handleClick('add') }
               >
-                {selected? 'Delete' : 'Add'}
+                {itemExists? 'Delete' : 'Add'}
 
               </button> 
               :
               <button
-              className={'toggle--button ' + (itemWatched? 'toggle--watched' : 'toggle--unwatched')}
-              onClick={()=>{
-                setwatchedOrNot(!watchedOrNot)
-                !itemWatched? watchedItems(currentUser,  item): notWatchedItems(currentUser, item)
-              }}
-
+                className={'toggle--button ' + (itemWatched? 'toggle--watched' : 'toggle--unwatched')}
+                onClick={()=> itemWatched? handleClick('watched') : handleClick('unwatched')}
               >
-
-              {itemWatched? 'Watched' : 'Not Watched'}
-              
+                {itemWatched? 'Watched' : 'Not Watched'}
               </button>
-
             }
           </div>           
   );

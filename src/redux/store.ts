@@ -3,7 +3,7 @@ import { usersReducer } from './reducers/users';
 import thunk from 'redux-thunk';
 import { currentUserReducer } from './reducers/currentUser';
 import { itemsReducer } from './reducers/items';
-import { itemsListReducer } from './reducers/addDeleteItems'
+import { itemsListReducer } from './reducers/AddDeleteItems'
 import { itemByIdReducer } from './reducers/itemById';
 import { videosReducer } from './reducers/videos';
 
