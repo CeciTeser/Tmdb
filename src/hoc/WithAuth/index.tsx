@@ -1,9 +1,11 @@
 import { FC } from "react";
-import { useSelector } from "react-redux";
+
 import { useHistory } from "react-router-dom";
+
 import { Loading } from "../../components/Common/Loading";
+
 import { useAuth } from "../../hooks/useAuth";
-import { User } from "../../types";
+
 
 const publicRoutes = ["/login", "/sign-up", "/contact"];
 

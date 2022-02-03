@@ -1,7 +1,11 @@
 import { FC } from "react";
+
 import { useHistory } from "react-router-dom";
+
 import { StarRating } from "../..";
+
 import { useVideos } from "../../../hooks";
+
 import { Item } from "../../../types";
 
 
@@ -43,7 +47,7 @@ const CardDetail :FC<Props> = ({items}) =>{
                                 <h3>Trailers</h3>
                                 {videoList.data?.map((video) => {
                                     return (
-                                        <div className='col-6'>
+                                        <div className='col-md-6 mb-3'>
                                             <iframe
                                             title={video.name}
                                             width="300"

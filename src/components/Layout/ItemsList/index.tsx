@@ -1,8 +1,13 @@
 import { FC } from "react";
+
 import { useHistory } from "react-router-dom";
-import { useAuth, useItems } from "../../../hooks";
-import { Item, Operation, TotalResults } from "../../../types";
+
+import { useAuth, useItems, useVideos } from "../../../hooks";
+
+import { Item, Operation } from "../../../types";
+
 import { StarRating } from "../../StarRaiting";
+
 import { ButtonCard } from "../../Common";
 
 
@@ -38,6 +43,7 @@ const ItemsList :FC<Props> = ({items}) =>{
     }
 
 
+
     return(
         <div className="container">
             <div className="row" >
@@ -47,7 +53,9 @@ const ItemsList :FC<Props> = ({items}) =>{
 
                         return (
                             <div className="col-md-3 mb-5 mt-5 d-flex flex-column justify-content-center align-items-center">
-                                <div className="card each-card" key={item.id} onClick={() => push(`/detail/${item.idDB}`)}>
+                                <div className="card each-card" key={item.id} onClick={
+                                    () =>push(`/detail/${item.idDB}`)
+                                    }>
                                     <div className="card-body d-flex flex-column justify-content-center align-items-center">
                                         <img src ={imageBroken}  className="img-fluid" alt={item.title}></img>
                                         <h5 className="card-title mt-3">{item.title}</h5>

@@ -1,8 +1,8 @@
-// ----------GET VIDEO ------------
-
 import {  apiTmdb } from "../../utils";
 import {  Video } from "../../types";
 import { types } from "../types";
+
+// ----------GET VIDEO ------------
 
 
     export const processVideos = (itemid:number ) => { 

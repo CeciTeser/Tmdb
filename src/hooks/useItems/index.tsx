@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
+
+
 import { getItemsList, processAddItems, processDeleteItems } from "../../redux/actions/addDeleteItems";
+
 import { patchUser } from "../../redux/actions/currentUser";
 import { processItems } from "../../redux/actions/items";
+
 import { Item, TotalResults, User } from "../../types";
 
 type ItemsStore={
@@ -42,7 +47,7 @@ const useItems = () =>{
 
 
     const deleteItems = async (itemSelected: Item | undefined) =>{
-        console.log('itemSelected', itemSelected)
+        
             if(itemSelected){
                 const itemToDelete = itemsListFB.items?.find(element => element.id === itemSelected.id)
                 await dispatch(processDeleteItems(itemToDelete?.idDB))
@@ -94,7 +99,7 @@ const useItems = () =>{
 
 
 
-    return { data, page, setPage, search, setSearch, itemsListFB, addItems, deleteItems, watchedItems, notWatchedItems }
+    return { data, page, setPage, search, setSearch, itemsListFB, addItems, deleteItems, watchedItems, notWatchedItems}
 
 }
 

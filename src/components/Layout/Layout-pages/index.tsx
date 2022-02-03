@@ -1,5 +1,7 @@
 import { FC } from 'react';
+
 import { Header } from '../../Common';
+
 import { Main } from '../Main';
 
 type Props={

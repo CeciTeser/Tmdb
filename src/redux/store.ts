@@ -1,6 +1,8 @@
 import { createStore, combineReducers, applyMiddleware, compose  } from 'redux';
-import { usersReducer } from './reducers/users';
+
 import thunk from 'redux-thunk';
+
+import { usersReducer } from './reducers/users';
 import { currentUserReducer } from './reducers/currentUser';
 import { itemsReducer } from './reducers/items';
 import { itemsListReducer } from './reducers/addDeleteItems'

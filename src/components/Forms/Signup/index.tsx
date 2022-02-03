@@ -1,11 +1,19 @@
 import { FC } from "react";
+
 import { useForm } from "react-hook-form";
+
 import { validationSchema } from "./validation-schema";
+
 import { yupResolver } from '@hookform/resolvers/yup';
+
 import { defaultValues } from './default-values';
+
 import { User } from "../../../types";
+
 import { signup } from "./api";
+
 import { useHistory } from "react-router";
+
 import logoBlanco from '../../../assets/img/LogoBlanco.svg'
 
 import './styles.scss';

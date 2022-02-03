@@ -1,11 +1,21 @@
 import { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import { signup } from "../../components/Forms/Signup/api";
-import { mapToArray } from "../../helpers";
-import { User } from "../../types";
-import { apiFirebase } from "../../utils";
-import { currentUserDenied, currentUserOk } from "../../redux/actions/currentUser";
+
+import { useHistory } from "react-router-dom";
+
 import { useDispatch, useSelector } from "react-redux";
+
+import { currentUserDenied, currentUserOk } from "../../redux/actions/currentUser";
+
+import { signup } from "../../components/Forms/Signup/api";
+
+import { mapToArray } from "../../helpers";
+
+import { User } from "../../types";
+
+import { apiFirebase } from "../../utils";
+
+
+
 
 type CurrentUserStore = {
     currentUser: User;
@@ -98,8 +108,8 @@ const useAuth = () => {
         } else {
             setHasUserLoggedIn(false);
         }
-        } catch (e) {
-        
+        } catch (error) {
+            throw new Error("The user doesn`t exist");
         }
     };
 
@@ -115,7 +125,7 @@ const useAuth = () => {
             push('/login');
             
         } catch (err) {
-            console.log(err);
+            throw new Error("Error. Try again");
             }
     };
 
