@@ -6,6 +6,7 @@ import { defaultValues } from './default-values';
 import { User } from "../../../types";
 import { signup } from "./api";
 import { useHistory } from "react-router";
+import logoBlanco from '../../../assets/img/LogoBlanco.svg'
 
 import './styles.scss';
 
@@ -35,67 +36,73 @@ const Signup:FC =()=>{
     }
 
     return (
-        <div className="conteiner-fluid">
-                <form action="" className="signup-form d-flex flex-column align-items-center justify-content-between mt-5"onSubmit={handleSubmit(onSubmit)} >
-                    <h2>Sign Up</h2>
-                    <div className=" d-flex flex-column align-items-center justify-content-center">
-                        <label htmlFor="email" className="pb-2">EMAIL: </label>
-                        <input 
-                            id="email" 
-                            type="email"    
-                            placeholder="ENTER YOUR EMAIL" 
-                            required
-                            {...register('email')}
-                        />
-                        {errors.email?.message}
-                    </div>
-                    <div className=" d-flex flex-column align-items-center justify-content-center">
-                        <label htmlFor="password" className="pb-2">PASSWORD: </label>
-                        <input 
-                            id="password" 
-                            type="password" 
-                            placeholder="ENTER YOUR PASSWORD" 
-                            required 
-                            {...register('password')}  
-                        />
-                        {errors.password?.message}
-                    </div>
-                    <div className="d-flex flex-column align-items-center justify-content-center">
-                        <label htmlFor="name" className="pb-2">NAME: </label>
-                        <input 
-                            id="name" 
-                            type="text" 
-                            placeholder="ENTER YOUR NAME" 
-                            required 
-                            {...register('name')}  
-                        />
-                        {errors.name?.message}
-                    </div>
-                    <div className=" d-flex flex-column align-items-center justify-content-center">
-                        <label htmlFor="lastname" className="pb-2">LASTNAME: </label>
-                        <input 
-                            id="lastname" 
-                            type="text" 
-                            placeholder="ENTER YOUR LASTNAME" 
-                            required 
-                            {...register('lastName')}  
-                        />
-                        {errors.lastName?.message}
-                    </div>
-                    <div className=" d-flex flex-column align-items-center justify-content-center">
-                        <label htmlFor="birthday" className="pb-2">BIRTHDAY: </label>
-                        <input 
-                            id="birthday" 
-                            type="date"
-                            placeholder="ENTER YOUR BIRTHDAY" 
-                            required 
-                            {...register('birthday')}  
-                        />
-                        {errors.birthday?.message}
-                    </div>
-                    <button type="submit">SIGN UP</button>
-                </form>
-            </div>   
+       
+        <form action="" className="signup-form d-flex flex-column align-items-center"onSubmit={handleSubmit(onSubmit)} >
+            <img src={logoBlanco} alt="logoblanco"/>
+            <h2>Sign Up</h2>
+            <div className="d-flex flex-column align-items-center justify-content-center ">
+                <label htmlFor="email"  className="form-label"></label>
+                <input 
+                    id="email" 
+                    type="email"  
+                    className="text-white"  
+                    placeholder="ENTER YOUR EMAIL" 
+                    required
+                    {...register('email')}
+                />
+                {errors.email?.message}
+            </div>
+            <div className="d-flex flex-column align-items-center justify-content-center ">
+                <label htmlFor="password"  className="form-label"></label>
+                <input 
+                    id="password" 
+                    type="password" 
+                    className="text-white"
+                    placeholder="ENTER YOUR PASSWORD" 
+                    required 
+                    {...register('password')}  
+                />
+                {errors.password?.message}
+            </div>
+            <div className="d-flex flex-column align-items-center justify-content-center ">
+                <label htmlFor="name"  className="form-label"></label>
+                <input 
+                    id="name" 
+                    type="text" 
+                    className="text-white"
+                    placeholder="ENTER YOUR NAME" 
+                    required 
+                    {...register('name')}  
+                />
+                {errors.name?.message}
+            </div>
+            <div className="d-flex flex-column align-items-center justify-content-center ">
+                <label htmlFor="lastname"  className="form-label"></label>
+                <input 
+                    id="lastname" 
+                    type="text" 
+                    className="text-white"
+                    placeholder="ENTER YOUR LASTNAME" 
+                    required 
+                    {...register('lastName')}  
+                />
+                {errors.lastName?.message}
+            </div>
+            <div className="d-flex flex-column align-items-center justify-content-center text-white ">
+                <label htmlFor="birthday"  className="form-label"></label>
+                <input 
+                    id="birthday" 
+                    type="date"
+                    className="text-white"
+                    placeholder="ENTER YOUR BIRTHDAY" 
+                    required 
+                    {...register('birthday')}  
+                />
+                {errors.birthday?.message}
+            </div>
+            <button type="submit">SIGN UP</button>
+        </form>
+           
     )
 
 };

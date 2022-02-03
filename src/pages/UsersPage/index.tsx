@@ -9,9 +9,9 @@ const UsersPage:FC =()=>{
 
     return (  
         <Layout page ='Users'>
-            <div className="d-flex flex-column align-items-center justify-content-center mt-5">
+            {/* <div className="d-flex flex-column align-items-center justify-content-center mt-5"> */}
             <Users/> 
-            </div>
+            {/* </div> */}
         </Layout>
     )
 

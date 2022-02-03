@@ -1,11 +1,16 @@
 @import '../../../scss/variables.scss';
 
 .react-paginate{
-    ul{
-        
+    ul{ 
+
         a{
-            color: sandybrown;
+            color: $fourth-color;
         }
+
+        a:hover{
+            color: $third-color;
+        }
+
     }
 
 }

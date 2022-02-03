@@ -2,15 +2,12 @@ import { FC } from 'react';
 import { Layout } from '../../components';
 import { Login } from '../../components/Forms/Login';
 
-import './styles.scss';
-
-
 
 const LoginPage:FC =()=>{ 
 
     return (  
         <Layout page ='Login' hideNav>
-            <div className="login-page d-flex align-items-center justify-content-center">
+            <div className="login-page">
             <Login/> 
             </div>
         </Layout>

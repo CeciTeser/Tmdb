@@ -6,7 +6,7 @@ import { validationSchema } from "./validation-schema";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { defaultValues } from './default-values';
 import { useAuth } from "../../../hooks";
-
+import logoBlanco from '../../../assets/img/LogoBlanco.svg'
 
 
 import './styles.scss';
@@ -38,35 +38,36 @@ const Login:FC =()=>{
 
 
     return (
-        <div className="conteiner-fluid" >
-                <form action="" className='login-form d-flex flex-column align-items-center justify-content-between' onSubmit={handleSubmit (onSubmit)} >
-                    <h2>CINEMA</h2>
-                    <div className=" d-flex flex-column align-items-center justify-content-center ">
-                        <label htmlFor="email" className="pb-2">EMAIL: </label>
-                        <input 
-                            id="email" 
-                            type="email"  
-                            placeholder="ENTER YOUR EMAIL" 
-                            required
-                            {...register('email')}
-                        />
-                        {errors.email?.message}
-                    </div>
-                    <div className="d-flex flex-column align-items-center justify-content-center ">
-                        <label htmlFor="password" className="pb-2">PASSWORD: </label>
-                        <input 
-                            id="password" 
-                            type="password" 
-                            placeholder="ENTER YOUR PASSWORD" 
-                            required 
-                            {...register('password')}  
-                        />
-                        {errors.password?.message}
-                    </div>
-                    <button type="submit">LOGIN</button>
-                    <p>Don't have an account? <Link to="/signup">SIGN UP</Link></p>
-                </form>
-            </div>   
+        <form action="" className='login-form d-flex flex-column align-items-center' onSubmit={handleSubmit (onSubmit)} >
+            <img src={logoBlanco} alt="logoblanco"/>
+            <div className="d-flex flex-column align-items-center justify-content-center ">
+                <label htmlFor="email" className="form-label"></label>
+                <input 
+                    id="email" 
+                    type="email" 
+                    className="text-white"
+                    placeholder="ENTER YOUR EMAIL" 
+                    required
+                    {...register('email')}
+                />
+                {errors.email?.message}
+            </div>
+            <div className="d-flex flex-column align-items-center justify-content-center ">
+                <label htmlFor="password" className="form-label"></label>
+                <input 
+                    id="password" 
+                    type="password" 
+                    className="text-white"
+                    placeholder="ENTER YOUR PASSWORD" 
+                    required 
+                    {...register('password')}  
+                />
+                {errors.password?.message}
+            </div>
+            <button type="submit">LOGIN</button>
+            <p>NO ACCOUNT? <Link to="/signup">SIGN UP!</Link></p>
+        </form>
+    
     )
 
 };

@@ -1,13 +1,16 @@
 import { FC } from "react";
+import logoColor from '../../../assets/img/LogoColor.svg'
 
 import './styles.scss';
 
 
 const Logo: FC  = () => {
   return (
-    <h1 className='logo'>
-      CINEMA
-    </h1>
+    <>
+    
+      <img src={logoColor} alt="logo" />
+
+    </>
   );
 };
 
