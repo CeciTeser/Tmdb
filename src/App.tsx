@@ -1,16 +1,18 @@
 import { Provider } from 'react-redux';
+import { store } from './redux/store';
+
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import  Dashboard  from './pages/Dashboard';
 import { LoginPage } from './pages/LoginPage';
 import { SignUpPage } from './pages/SignUpPage';
-import { store } from './redux/store';
 import UsersPage from './pages/UsersPage';
 import SeriesPage from './pages/SeriesPage';
 import AdminPage from './pages/AdminPage';
 import MoviesPage from './pages/MoviesPage';
 import CardDetailPage from './pages/CardDetailPage';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 
 
@@ -20,7 +22,9 @@ function App() {
     <Provider store = {store}>
 
       <Router>
+
         <Switch>
+
           <Route path="/tv" component={SeriesPage}/>
           <Route path="/movies" component={MoviesPage}/>
           <Route path="/admin" component={AdminPage}/>
@@ -29,8 +33,11 @@ function App() {
           <Route path="/login" component={LoginPage}/>
           <Route path="/signup" component={SignUpPage}/>
           <Route path="/" component={Dashboard}/>
+          
         </Switch>
+
       </Router>
+
     </Provider>
   )
 }

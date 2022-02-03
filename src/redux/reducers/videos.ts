@@ -1,4 +1,4 @@
-import { Item, Video } from "../../types";
+import { Video } from "../../types";
 import { types } from "../types";
 
 const initialState = {

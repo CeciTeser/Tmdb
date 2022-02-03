@@ -1,7 +1,11 @@
 import { FC, useEffect } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
+
 import { deleteUsers, processUsers } from "../../../redux/actions/users";
+
 import { User } from "../../../types";
+
 import {Container, Table} from 'react-bootstrap'
 
 import './styles.scss';

@@ -1,5 +1,5 @@
 import { mapToArray } from "../../helpers";
-import { Item, User } from "../../types";
+import { User } from "../../types";
 import { apiFirebase } from "../../utils/axios";
 import { types } from "../types";
 

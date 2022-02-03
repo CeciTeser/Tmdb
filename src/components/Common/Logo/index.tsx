@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import logoColor from '../../../assets/img/LogoColor.svg'
 
 import './styles.scss';

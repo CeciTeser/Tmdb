@@ -1,9 +1,8 @@
-
-// ----------GET ITEM BY ID ------------
-
 import { apiFirebase } from "../../utils";
 import { Item } from "../../types";
 import { types } from "../types";
+
+// ----------GET ITEM BY ID ------------
 
 
     export const processItemById = (itemid:string ) => { 
