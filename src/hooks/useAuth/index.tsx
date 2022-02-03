@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { signup } from "../../components/Forms/Signup/api";
 import { mapToArray } from "../../helpers";
 import { User } from "../../types";

@@ -22,9 +22,6 @@ const CardDetail :FC<Props> = ({items}) =>{
 
     const {data, videoList } = useVideos()
 
-    console.log(videoList.data)
-
-
     return(
 
         <div className="container">
