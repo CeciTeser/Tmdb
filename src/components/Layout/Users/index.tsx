@@ -2,6 +2,9 @@ import { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUsers, processUsers } from "../../../redux/actions/users";
 import { User } from "../../../types";
+import {Container, Table} from 'react-bootstrap'
+
+import './styles.scss';
 
 
 type UserStore={
@@ -26,31 +29,31 @@ const Users:FC=()=>{
 
 
     return(
-            <div>
-            <table className="table">
+        <Container>
+            <Table className="table table-style">
                 <thead>
                     <tr>
-                    <th>USER ID</th>
-                    <th>USER NAME</th>
-                    <th>USER LASTNAME</th>
-                    <th>USER BIRTHDAY</th>
+                    <th >USER NAME</th>
+                    <th >USER LASTNAME</th>
+                    <th >USER EMAIL</th>
+                    <th >USER BIRTHDAY</th>
                     </tr>
                 </thead>
                 <tbody>
                     {data?.map((users) => {
                     return (
-                <tr key={users.idDB}>
-                    <td>{users.name}</td>
-                    <td>{users.lastName}</td>
-                    <td>{users.email}</td>
-                    <td>{users.birthday}</td>
-                    <td><button onClick={() => dispatch (deleteUsers(users.idDB))}> DELETE </button></td>
+                <tr className="col-md-3 mb-5" key={users.idDB} >
+                    <td >{users.name}</td>
+                    <td > {users.lastName}</td>
+                    <td >{users.email}</td>
+                    <td >{users.birthday}</td>
+                    <td ><button onClick={() => dispatch (deleteUsers(users.idDB))}> DELETE </button></td>
                 </tr>
                     );
                 })}
                 </tbody>
-            </table>
-        </div>
+            </Table>
+        </Container>
     )
 }
 

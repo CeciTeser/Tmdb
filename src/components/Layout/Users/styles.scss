@@ -1,0 +1,23 @@
+@import '../../../scss/variables.scss';
+@import '../../../scss/base/typography.scss';
+ 
+.table-style{
+   font-family: 'Barlow', sans-serif; 
+   font-size: 1rem;
+
+   button{
+    width: 7rem;    
+    height: 2rem;
+    border-radius: 5px;
+    background-color: $primary-color;
+    color: white;
+    border: none;
+   }
+
+   button:hover{
+    background-color: white;
+    color: $primary-color;
+    border: 1px solid $primary-color;
+   }
+ }
+

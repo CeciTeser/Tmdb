@@ -28,13 +28,16 @@ const CardDetail :FC<Props> = ({items}) =>{
     return(
 
         <div className="container">
-            
             <section className="card mb-5"> 
-                <div className="row g-0">
+                <div className="row">
+                    <div className="col-md-4">
+                        <img src ={`http://image.tmdb.org/t/p/w500${data.poster_path}`} className="img-fluid rounded-start" alt="PosterPath"/>
+                    </div>  
                     <div className="col-md-8 d-flex">
                         <div className="card-body">
-                            <h5 className="card-title">{data.title}</h5>
+                            <h5 className="card-title"><strong>{data.title}</strong></h5>
                             <p className="card-text">{data.original_title}</p>
+                            <div className='vote'>{data.vote_average}</div>
                             <StarRating stars={data.vote_average} />
                             <p className="card-text">{data.overview}</p>
                             <p className="card-text"> <strong>Release date:</strong> {data.release_date}</p>
@@ -58,14 +61,12 @@ const CardDetail :FC<Props> = ({items}) =>{
                             </section>
                         </div>
                     </div>
-                    <div className="col-md-4">
-                        <img src ={`http://image.tmdb.org/t/p/w500${data.poster_path}`} className="img-fluid rounded-start" alt="PosterPath"/>
-                    </div>  
                 </div>
             </section>
-            <button className="goback-btn mt-3 mb-5" onClick={goBack}> <i className="fas fa-chevron-left pe-2"></i>GO BACK</button>
+            <hr />
+            <button className="goback-btn my-5" onClick={goBack}> <i className="fas fa-chevron-left pe-2"></i>GO BACK</button>
 
-            <h2 className="mt-5 mb-5">ALSO...</h2>
+            <h2 className="my-4">ALSO...</h2>
             <section className="row" >
                     {items?.map((item) => {
                         return (

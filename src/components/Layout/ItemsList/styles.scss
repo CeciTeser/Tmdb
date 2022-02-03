@@ -1,7 +1,19 @@
+@import '../../../scss/variables.scss';
+@import '../../../scss/base/typography.scss';
+
 .each-card{
     height: 100%;
     cursor: pointer;
-    background-color: rgb(250, 249, 249);
+    border: none;
+    border-right: 1px solid rgb(225, 224, 224);
+    font-family: 'Barlow', sans-serif;
+
+
+    h5{
+
+        font-size: 1rem;
+    }
+    
 }
 
 

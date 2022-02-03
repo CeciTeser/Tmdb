@@ -1,20 +1,67 @@
+@import '../../../scss/variables.scss';
+@import '../../../scss/base/typography.scss';
+
+
 .toggle--button{
-    font-size: 1rem;
+    font-size: 0.8rem;
     text-align: center;
     cursor: pointer;
     display: table;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
 }
 
 .toggle--add{
-    background-color: red;
+    width: 8rem;    
+    height: 2rem;
+    background-color: $primary-color;
+    color: white;
+    border: none;
 }
+
+.toggle--add:hover{
+    background-color: white;
+    color: $primary-color;
+    border: 1px solid $primary-color;
+}
+
 .toggle--delete{
-    background-color: rgb(79, 131, 199);
+    width: 8rem;
+    height: 2rem;
+    background-color: white;
+    color: $primary-color;
+    border: 1px solid $primary-color;
+}
+
+.toggle--delete:hover{
+    background-color: $primary-color;
+    color: white;
+    border: none;
 }
 
 .toggle--watched{
-    background-color: rgb(197, 54, 178);
+    width: 8rem;
+    height: 2rem;
+    background-color: white;
+    color: $primary-color;
+    border: 1px solid $primary-color;
 }
+.toggle--watched:hover{
+    background-color: $primary-color;
+    color: white;
+    border: none;
+}
+
 .toggle--unwatched{
-    background-color: rgb(115, 199, 79);
+    width: 8rem;
+    height: 2rem;
+    background-color: $primary-color;
+    color: white;
+    border: none;
+}
+
+.toggle--unwatched:hover{
+    background-color: white;
+    color: $primary-color;
+    border: 1px solid $primary-color;
 }

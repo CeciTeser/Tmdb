@@ -21,10 +21,10 @@ const ButtonCard:FC <Props> = ({itemExists, itemWatched, isAdmin, handleClick}) 
           <div>
             {isAdmin ?
               <button
-                className={'toggle--button ' + (itemExists? 'toggle--add' : 'toggle--delete')}
+                className={'toggle--button ' + (itemExists? 'toggle--delete' : 'toggle--add')}
                 onClick={() => itemExists ? handleClick('delete') : handleClick('add') }
               >
-                {itemExists? 'Delete' : 'Add'}
+                {itemExists? 'DELETE' : 'ADD'}
 
               </button> 
               :
@@ -32,7 +32,7 @@ const ButtonCard:FC <Props> = ({itemExists, itemWatched, isAdmin, handleClick}) 
                 className={'toggle--button ' + (itemWatched? 'toggle--watched' : 'toggle--unwatched')}
                 onClick={()=> itemWatched? handleClick('watched') : handleClick('unwatched')}
               >
-                {itemWatched? 'Watched' : 'Not Watched'}
+                {itemWatched? 'WATCHED' : 'NOT WATCHED'}
               </button>
             }
           </div>           
