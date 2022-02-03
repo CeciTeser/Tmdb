@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useHistory } from "react-router-dom";
 import { useAuth, useItems } from "../../../hooks";
-import { Item, Operation } from "../../../types";
+import { Item, Operation, TotalResults } from "../../../types";
 import { StarRating } from "../../StarRaiting";
 import { ButtonCard } from "../../Common";
 
@@ -11,6 +11,7 @@ import './styles.scss';
 
 type Props={
     items:Item[], 
+       
 }
 
 const ItemsList :FC<Props> = ({items}) =>{

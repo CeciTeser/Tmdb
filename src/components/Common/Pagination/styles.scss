@@ -1,8 +1,7 @@
 @import '../../../scss/variables.scss';
 
 .react-paginate{
-    ul{ 
-
+    
         a{
             color: $fourth-color;
         }
@@ -10,7 +9,5 @@
         a:hover{
             color: $third-color;
         }
-
-    }
 
 }
