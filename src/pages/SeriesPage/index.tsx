@@ -16,7 +16,7 @@ const SeriesPage:FC =()=>{
     return (  
         <Layout page ='Series'>
 
-         <ItemsList items={series}/>
+            <ItemsList items={series}/>
 
         </Layout>
     )

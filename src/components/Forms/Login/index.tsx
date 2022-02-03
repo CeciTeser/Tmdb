@@ -30,7 +30,8 @@ const Login:FC =()=>{
 
         try {
             await login(data.email, data.password);
-            push(`/user:${currentUser.idDB}`)
+            const userid= localStorage.getItem("userid")
+            push(`/user:${userid}`)
         } catch (err) {
             console.log('error', err);
             }

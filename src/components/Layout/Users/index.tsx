@@ -33,22 +33,22 @@ const Users:FC=()=>{
             <Table className="table table-style">
                 <thead>
                     <tr>
-                    <th >USER NAME</th>
-                    <th >USER LASTNAME</th>
-                    <th >USER EMAIL</th>
-                    <th >USER BIRTHDAY</th>
+                        <th >USER NAME</th>
+                        <th >USER LASTNAME</th>
+                        <th >USER EMAIL</th>
+                        <th >USER BIRTHDAY</th>
                     </tr>
                 </thead>
                 <tbody>
                     {data?.map((users) => {
                     return (
-                <tr className="col-md-3 mb-5" key={users.idDB} >
-                    <td >{users.name}</td>
-                    <td > {users.lastName}</td>
-                    <td >{users.email}</td>
-                    <td >{users.birthday}</td>
-                    <td ><button onClick={() => dispatch (deleteUsers(users.idDB))}> DELETE </button></td>
-                </tr>
+                        <tr className="col-md-3 mb-5" key={users.idDB} >
+                            <td >{users.name}</td>
+                            <td > {users.lastName}</td>
+                            <td >{users.email}</td>
+                            <td >{users.birthday}</td>
+                            <td ><button onClick={() => dispatch (deleteUsers(users.idDB))}> DELETE </button></td>
+                        </tr>
                     );
                 })}
                 </tbody>
