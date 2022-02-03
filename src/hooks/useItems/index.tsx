@@ -25,6 +25,7 @@ type ItemsAddStore = {
 const useItems = () =>{
 
     const [page, setPage]= useState(1)
+    
     const [search, setSearch]= useState<string>('')
   
     const dispatch = useDispatch()
@@ -41,10 +42,10 @@ const useItems = () =>{
 
 
     const deleteItems = async (itemSelected: Item | undefined) =>{
+        console.log('itemSelected', itemSelected)
             if(itemSelected){
-            
-                await dispatch(processDeleteItems(itemSelected.idDB))
-
+                const itemToDelete = itemsListFB.items?.find(element => element.id === itemSelected.id)
+                await dispatch(processDeleteItems(itemToDelete?.idDB))
             }
     };
 

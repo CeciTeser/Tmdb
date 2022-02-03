@@ -34,7 +34,6 @@ const Pagination :FC = () =>{
                 nextClassName={'page-item'}
                 nextLinkClassName={'page-link'}
                 breakLinkClassName= {'page-link'}
-                activeClassName = {'active'}
             /> 
         </div>
     )
