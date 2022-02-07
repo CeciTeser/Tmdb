@@ -26,13 +26,17 @@ const CardDetail :FC<Props> = ({items}) =>{
 
     const {data, videoList } = useVideos()
 
+    const imageBroken = (!data.poster_path)? "https://i.stack.imgur.com/6M513.png" : `http://image.tmdb.org/t/p/w500${data.poster_path}`
+
+    
+
     return(
 
         <div className="container">
             <section className="card mb-5"> 
                 <div className="row">
                     <div className="col-md-4">
-                        <img src ={`http://image.tmdb.org/t/p/w500${data.poster_path}`} className="img-fluid rounded-start" alt="PosterPath"/>
+                        <img src ={imageBroken}  className="img-fluid rounded-start" alt={data.title}></img>
                     </div>  
                     <div className="col-md-8 d-flex">
                         <div className="card-body">
@@ -46,6 +50,7 @@ const CardDetail :FC<Props> = ({items}) =>{
                             <section  className="pt-5 row">
                                 <h3>Trailers</h3>
                                 {videoList.data?.map((video) => {
+
                                     return (
                                         <div className='col-md-6 mb-3'>
                                             <iframe
@@ -72,7 +77,7 @@ const CardDetail :FC<Props> = ({items}) =>{
                     {items?.map((item) => {
                         return (
                             <div className="col-md-3 mb-5">
-                                <div className="card each-card" key={item.id}  onClick={() => push(`/detail/${item.idDB}`)}>
+                                <div className="card each-card" key={item.id}  onClick={() => push(`/detail/${item.id}`)}>
                                     <div className="card-body d-flex flex-column justify-content-center align-items-center">
                                         <img src ={ `http://image.tmdb.org/t/p/w500${item.poster_path}`}  className="img-fluid" alt={item.title}></img>
                                         <h5 className="card-title mt-3">{item.title}</h5>
