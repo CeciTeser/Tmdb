@@ -54,7 +54,7 @@ const ItemsList :FC<Props> = ({items}) =>{
                         return (
                             <div className="col-md-3 mb-5 mt-5 d-flex flex-column justify-content-center align-items-center">
                                 <div className="card each-card" key={item.id} onClick={
-                                    () =>push(`/detail/${item.idDB}`)
+                                    () =>push(`/detail/${item.id}`)
                                     }>
                                     <div className="card-body d-flex flex-column justify-content-center align-items-center">
                                         <img src ={imageBroken}  className="img-fluid" alt={item.title}></img>

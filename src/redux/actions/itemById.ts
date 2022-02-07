@@ -1,4 +1,4 @@
-import { apiFirebase } from "../../utils";
+import { apiFirebase, apiTmdb } from "../../utils";
 import { Item } from "../../types";
 import { types } from "../types";
 
@@ -13,8 +13,7 @@ import { types } from "../types";
     
         try {
 
-            const response = await apiFirebase.get(`/itemsList/${itemid}.json`);
-
+            const response = await apiTmdb.get(`/movie/${itemid}`);
             dispatch(itemByIdOk(response.data))
 
     
