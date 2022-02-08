@@ -2,6 +2,9 @@ import { FC } from "react";
 
 import { useItems } from "../../../hooks/useItems";
 
+import lens from '../../../assets/img/Lens.svg'
+
+
 import './styles.scss';
 
 
@@ -22,7 +25,7 @@ const Search: FC = () => {
               className="form-control"
               onChange={handleChange} 
             />
-            <span className="ms-4"><i className="fab fa-searchengin"></i></span>
+            <img className="ms-4" src={lens} alt="lens" />
         </div>
       </div>
   );
