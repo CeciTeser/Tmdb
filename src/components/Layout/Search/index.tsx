@@ -14,7 +14,7 @@ const Search: FC = () => {
   }
 
   return (
-      <div className="container-fluid d-flex align-items-center justify-content-center">
+      <div className="container d-flex align-items-center justify-content-center">
         <div className="mb-5 mt-5 d-flex align-items-center search-style">
             <p className="text-black search-text me-4">SEARCH</p>
             <input 
