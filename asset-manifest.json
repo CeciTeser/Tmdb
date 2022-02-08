@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Tmdb/static/css/main.de7fa92e.chunk.css",
-    "main.js": "/Tmdb/static/js/main.eac92036.chunk.js",
-    "main.js.map": "/Tmdb/static/js/main.eac92036.chunk.js.map",
+    "main.css": "/Tmdb/static/css/main.1283221a.chunk.css",
+    "main.js": "/Tmdb/static/js/main.1ffec975.chunk.js",
+    "main.js.map": "/Tmdb/static/js/main.1ffec975.chunk.js.map",
     "runtime-main.js": "/Tmdb/static/js/runtime-main.14e8f136.js",
     "runtime-main.js.map": "/Tmdb/static/js/runtime-main.14e8f136.js.map",
     "static/css/2.383c0125.chunk.css": "/Tmdb/static/css/2.383c0125.chunk.css",
@@ -10,8 +10,9 @@
     "static/js/2.6d5209f2.chunk.js.map": "/Tmdb/static/js/2.6d5209f2.chunk.js.map",
     "index.html": "/Tmdb/index.html",
     "static/css/2.383c0125.chunk.css.map": "/Tmdb/static/css/2.383c0125.chunk.css.map",
-    "static/css/main.de7fa92e.chunk.css.map": "/Tmdb/static/css/main.de7fa92e.chunk.css.map",
+    "static/css/main.1283221a.chunk.css.map": "/Tmdb/static/css/main.1283221a.chunk.css.map",
     "static/js/2.6d5209f2.chunk.js.LICENSE.txt": "/Tmdb/static/js/2.6d5209f2.chunk.js.LICENSE.txt",
+    "static/media/Lens.74eb3536.svg": "/Tmdb/static/media/Lens.74eb3536.svg",
     "static/media/LogoBlanco.6b65f29a.svg": "/Tmdb/static/media/LogoBlanco.6b65f29a.svg",
     "static/media/LogoColor.dd4b4c92.svg": "/Tmdb/static/media/LogoColor.dd4b4c92.svg"
   },
@@ -19,7 +20,7 @@
     "static/js/runtime-main.14e8f136.js",
     "static/css/2.383c0125.chunk.css",
     "static/js/2.6d5209f2.chunk.js",
-    "static/css/main.de7fa92e.chunk.css",
-    "static/js/main.eac92036.chunk.js"
+    "static/css/main.1283221a.chunk.css",
+    "static/js/main.1ffec975.chunk.js"
   ]
 }
