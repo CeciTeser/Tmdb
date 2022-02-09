@@ -1,46 +1,62 @@
-# Getting Started with Create React App
+Deployed: https://ceciteser.github.io/Tmdb/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+En este proyecto he creado una aplicación que se basa en la gestión y uso de una plataforma de contenido cinematográfico. Conectando con una api de películas y series (TMDB) obtuve toda la información necesaria para nutrir mi aplicación de contenidos. 
 
-## Available Scripts
+Tiene dos tipos de actores: administrador y usuario.
 
-In the project directory, you can run:
+### Actores, funciones y responsabilidades
 
-### `npm start`
+### Administrador
+Iniciar sesión con "role admin".
+Acceso a todas las paginas del sitio.
+Seleccionar items (películas o series) de la api para agregar a la plataforma (Firebase) de reproducción.
+Eliminar items (películas o series) de la plataforma (Firebase).
+Eliminar usuarios.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Usuario
+Iniciar sesión con "role user".
+Acceso solo a películas, series y detalle.
+Los items (películas y series) pueden ser marcadas como vistos o no vistos. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Screens
 
-### `npm test`
+### Signup
+Esta pantalla consiste en un formulario que permitirá crear usuarios en la base de datos (birthdate, email, lastName, name, password, role, sessionToken, viewed).
+Los usuarios se crean con el role “user” por defecto.
+Validación
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Login
+Formulario de inicio de sesión que solicita usuario y contraseña.
+Validación
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Admin
+Esta pantalla lista las películas mejor ranqueadas.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Tiene también un buscador que en caso de contener texto realizará una búsqueda multiple (películas, series, personas, etc) 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Para ambos casos previos, disponemos de una paginación numérica que se ajuste a los resultados.
 
-### `npm run eject`
+Los items (películas y series) se presentan con una imagen y los datos más relevantes. Cada una de estas tiene un botón que permita dar de alta la totalidad de sus datos en la base de datos de la aplicación.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Los items que ya existen en la base de datos, contienen un botón que permite eliminarlos.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Home
+Esta pantalla se listan todos los items dados de alta en la base de datos.
+Al hacer click sobre un item, se abre la pagina “Detail”.
+Los items contienen un botón que permite marcarlos como vistos para el usuario en sesión.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Películas
+Esta pantalla muestra solo las películas dadas de alta en la base de datos.
+Al hacer click sobre un item, se abre la pagina “Detail”.
+Las películas contienen un botón que permite marcarlas como vistas para el usuario en sesión.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### Series
+Esta pantalla muestra solo las series dadas de alta en la base de datos.
+Al hacer click sobre un item, se abre la pagina “Detail”.
+Las series contienen un botón que permite marcarlas como vistas para el usuario en sesión.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Detail
+En esta pantalla se accede a la información detallada de la película seleccionada: poster, trailers, etc
+Debajo se muestra un listado con el resto de los items (películas y series) disponibles. 
